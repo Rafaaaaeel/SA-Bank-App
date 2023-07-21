@@ -34,6 +34,13 @@ class CommonButton: UIButton {
         
         NSLayoutConstraint.activate(constraint)
     }
+    
+    func configLabel() {
+        guard let label = self.titleLabel else { return }
+        label.text = "login"
+        label.textColor = .red
+        
+    }
 
 }
 
