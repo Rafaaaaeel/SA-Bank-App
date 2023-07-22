@@ -18,12 +18,14 @@ class CommonButton: UIButton {
     func setup() {
         configView()
         configConstraints()
+        setConditionsButtonTitle()
     }
     
     func configView() {
         backgroundColor = .primaryButton
         layer.cornerRadius = height / 2 
         translatesAutoresizingMaskIntoConstraints = false
+        setTitleColor(.black, for: [])
     }
     
     func configConstraints() {
@@ -39,7 +41,15 @@ class CommonButton: UIButton {
         guard let label = self.titleLabel else { return }
         label.text = "login"
         label.textColor = .red
-        
+    }
+    
+    private func setConditionsButtonTitle() {
+       let attributes: [NSAttributedString.Key: Any] = [
+          .foregroundColor: UIColor.black,
+          .font: UIFont.systemFont(ofSize: 16, weight: .bold),
+       ]
+       let attributedText = NSAttributedString(string: "Login", attributes: attributes)
+       setAttributedTitle(attributedText, for: [])
     }
 
 }
