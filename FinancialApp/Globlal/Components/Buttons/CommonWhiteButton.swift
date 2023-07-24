@@ -1,9 +1,15 @@
 import UIKit
 
-class CommonButton: UIButton {
+class CommonWhiteButton: UIButton {
     
     public var height: CGFloat = 60
     public var isPressAnimationActive = true
+    
+    public var title: String? {
+        didSet {
+            setConditionsButtonTitle()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,25 +43,20 @@ class CommonButton: UIButton {
         NSLayoutConstraint.activate(constraint)
     }
     
-    func configLabel() {
-        guard let label = self.titleLabel else { return }
-        label.text = "login"
-        label.textColor = .red
-    }
-    
     private func setConditionsButtonTitle() {
-       let attributes: [NSAttributedString.Key: Any] = [
+        guard let title else { return }
+        let attributes: [NSAttributedString.Key: Any] = [
           .foregroundColor: UIColor.black,
           .font: UIFont.systemFont(ofSize: 16, weight: .bold),
-       ]
-       let attributedText = NSAttributedString(string: "Login", attributes: attributes)
-       setAttributedTitle(attributedText, for: [])
+        ]
+        let attributedText = NSAttributedString(string: title, attributes: attributes)
+        setAttributedTitle(attributedText, for: [])
     }
 
 }
 
 
-extension CommonButton {
+extension CommonWhiteButton {
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIView.animate(withDuration: 0.1) {

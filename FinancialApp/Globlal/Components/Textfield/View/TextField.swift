@@ -2,6 +2,9 @@ import UIKit
 
 final class CommonTextField: UIView {
     
+    var height: CGFloat = 60
+    var radius: CGFloat = 20
+    
     enum State {
         case selected
         case deselected
@@ -62,7 +65,7 @@ final class CommonTextField: UIView {
         return button
     }()
     
-    private lazy var textField: UITextField = {
+    lazy var textField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.delegate = self
@@ -86,6 +89,7 @@ final class CommonTextField: UIView {
 private extension CommonTextField {
     
     @objc func didTouchRightButton() {
+        textField.isSecureTextEntry = textField.isSecureTextEntry == true ? false : true
         actionDelegate?.didTouchButton()
     }
     
@@ -99,6 +103,7 @@ private extension CommonTextField {
     }
     
     func configActionButtton() {
+//        buttonImage = SFImages.eye
         actionButton.isHidden = isButtonHidden
         guard let buttonImage else { return }
         actionButton.setImage(UIImage(systemName: buttonImage), for: .normal)
@@ -118,6 +123,7 @@ extension CommonTextField: CodableViews {
         backgroundColor = .secundaryBackground
         layer.borderColor = UIColor.borderColors.cgColor
         layer.borderWidth = 1
+        layer.cornerRadius = radius
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
     }
@@ -130,6 +136,10 @@ extension CommonTextField: CodableViews {
     }
     
     func setupContraints() {
+        let constraints = [
+            heightAnchor.constraint(equalToConstant: height)
+        ]
+        
         let textFieldConstraints = [
             textField.topAnchor.constraint(equalTo: topAnchor),
             textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -154,7 +164,11 @@ extension CommonTextField: CodableViews {
             actionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ]
         
-        NSLayoutConstraint.activeAll(textFieldConstraints, iconImageViewConstraints, placeholderConstrainst, actionButtonConstraints)
+        NSLayoutConstraint.activeAll(constraints,
+                                     textFieldConstraints,
+                                     iconImageViewConstraints,
+                                     placeholderConstrainst,
+                                     actionButtonConstraints)
     }
     
 }
