@@ -1,7 +1,16 @@
+import UIKit
+
 class LoginRouter: LoginRouterProtocol {
     
+    var controller: UINavigationController?
+    
+    func didForgetPassword() {
+        print("Forget password")
+    }
+    
+    
     func didTouchToRegister() {
-        print("Router register")
+        controller?.pushViewController(RegisterConfigurator.view(), animated: true)
     }
     
     func didLogin() {

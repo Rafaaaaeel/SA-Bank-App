@@ -13,15 +13,6 @@ final class LoginView: UIView {
         return stack
     }()
     
-    private lazy var registerStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .horizontal
-        stack.spacing = 5
-        stack.alignment = .center
-        return stack
-    }()
-    
     private lazy var forgotPasswordStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -57,15 +48,16 @@ final class LoginView: UIView {
         return field
     }()
     
-    private lazy var forgotPasswordButton: CommonTextButton = {
+    lazy var forgotPasswordButton: CommonTextButton = {
         let button = CommonTextButton()
         button.title = Text.forgotPasswordTitle
         return button
     }()
     
-    private lazy var loginButton: CommonWhiteButton = {
+    lazy var loginButton: CommonWhiteButton = {
         let button = CommonWhiteButton()
         button.title = Text.loginButtonTitle
+        button.height = 200
         button.addTarget(self, action: #selector(didTouchLogin), for: .touchUpInside)
         button.isPressAnimationActive = false
         return button
@@ -73,6 +65,7 @@ final class LoginView: UIView {
     
     private lazy var createAccountButton: CommonTextButton = {
         let button = CommonTextButton()
+        button.shouldShowPlaceholder = true
         button.title = Text.signUpTitle
         return button
     }()
@@ -104,23 +97,44 @@ extension LoginView: CodableViews {
     }
     
     func setupHiearchy() {
-        mainStackView.addArrangedSubviews(titleLabel, emailTextField, passwordTextField)
+        addSubview(titleLabel)
+        mainStackView.addArrangedSubviews(emailTextField, passwordTextField)
         forgotPasswordStackView.addArrangedSubviews(placeholderView, forgotPasswordButton)
-        mainStackView.addArrangedSubviews(forgotPasswordStackView, loginButton)
-        registerStackView.addArrangedSubview(createAccountButton)
-        mainStackView.addArrangedSubview(registerStackView)
+        mainStackView.addArrangedSubviews(forgotPasswordStackView)
+        addSubview(createAccountButton)
         addSubview(mainStackView)
+        addSubview(loginButton)
     }
     
     func setupContraints() {
         
+        let titleLabelConstriants = [
+            titleLabel.topAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.topAnchor, multiplier: 3),
+            titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
+        ]
+        
         let mainStackViewConstriants = [
-            mainStackView.topAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.topAnchor, multiplier: 0),
+            mainStackView.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 5),
             mainStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
             trailingAnchor.constraint(equalToSystemSpacingAfter: mainStackView.trailingAnchor, multiplier: 2)
         ]
         
-        NSLayoutConstraint.activate(mainStackViewConstriants)
+        leftConstraint = loginButton.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor)
+        rightConstraint = loginButton.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor)
+        
+        let loginButtonConstraints = [
+            loginButton.topAnchor.constraint(equalToSystemSpacingBelow: mainStackView.bottomAnchor, multiplier: 2),
+            leftConstraint,
+            rightConstraint
+        ]
+        
+        let createAccountButtonConstraint = [
+            createAccountButton.topAnchor.constraint(equalToSystemSpacingBelow: loginButton.bottomAnchor, multiplier: 1),
+            createAccountButton.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
+            createAccountButton.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor)
+        ]
+        
+        NSLayoutConstraint.activeAll(titleLabelConstriants, mainStackViewConstriants, loginButtonConstraints, createAccountButtonConstraint)
     }
     
     func renders() {
@@ -133,34 +147,6 @@ extension LoginView: CommonTextFieldActionDelegate {
     
     func didTouchButton() {
         //
-    }
-    
-}
-
-extension LoginView {
-    
-    func animation() {
-        UIView.animate(withDuration: 0.4) {
-            let width = self.forgotPasswordButton.frame.width + 8
-            self.leftConstraint.constant = width
-            self.rightConstraint.constant = -width
-            UIView.animate(withDuration: 0.2, delay: 0.3) {
-                self.loginButton.transform = CGAffineTransform(scaleX: 0.80, y: 0.80)
-            }
-            self.layoutIfNeeded()
-        } completion: { _ in
-            UIView.animate(withDuration: 0.1) {
-                self.loginButton.transform = CGAffineTransform.identity
-                let width = self.forgotPasswordButton.frame.width + 5
-                self.leftConstraint.constant = width
-                self.rightConstraint.constant = -width
-                self.layoutIfNeeded()
-            } completion: { _ in
-                UIView.animate(withDuration: 2, delay: 0.12) {
-                    self.loginButton.transform = CGAffineTransform(scaleX: 400, y: 400)
-                }
-            }
-        }
     }
     
 }

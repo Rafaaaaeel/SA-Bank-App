@@ -41,8 +41,11 @@ protocol LoginViewControllerProtocol {
 // ViewController -> Router
 protocol LoginRouterProtocol {
     
+    var controller: UINavigationController? { get }
+    
     func didTouchToRegister()
     func didLogin()
+    func didForgetPassword()
     
 }
 

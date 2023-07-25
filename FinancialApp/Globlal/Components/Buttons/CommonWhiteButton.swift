@@ -43,6 +43,15 @@ class CommonWhiteButton: UIButton {
         NSLayoutConstraint.activate(constraint)
     }
     
+    func hideTitle() {
+        let attributes: [NSAttributedString.Key: Any] = [
+          .foregroundColor: UIColor.white,
+          .font: UIFont.systemFont(ofSize: 0, weight: .bold),
+        ]
+        let attributedText = NSAttributedString(string: "", attributes: attributes)
+        setAttributedTitle(attributedText, for: [])
+    }
+    
     private func setConditionsButtonTitle() {
         guard let title else { return }
         let attributes: [NSAttributedString.Key: Any] = [

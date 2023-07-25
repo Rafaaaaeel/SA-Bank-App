@@ -8,6 +8,8 @@ class CommonTextButton: UIButton {
         }
     }
     
+    public lazy var shouldShowPlaceholder: Bool = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -41,9 +43,13 @@ class CommonTextButton: UIButton {
         let attributedText = NSMutableAttributedString(string: title, attributes: attributes)
         let placeholderText = NSMutableAttributedString(string: Text.createAccountText, attributes: placeholderAtributes)
         
-        placeholderText.append(attributedText)
-
-        setAttributedTitle(placeholderText, for: [])
+        if shouldShowPlaceholder {
+            placeholderText.append(attributedText)
+            setAttributedTitle(placeholderText, for: [])
+            return
+        }
+        
+        setAttributedTitle(attributedText, for: [])
     }
     
 }

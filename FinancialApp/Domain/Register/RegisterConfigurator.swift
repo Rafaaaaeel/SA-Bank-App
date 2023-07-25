@@ -1,11 +1,11 @@
-class LoginConfigurator {
+class RegisterConfigurator {
     
-    static func view() -> LoginViewController {
-        let interactor = LoginInteractor()
-        let worker = LoginWoker()
-        let presenter = LoginPresenter()
-        let router = LoginRouter()
-        let viewController = LoginViewController()
+    static func view() -> RegisterViewController {
+        let interactor = RegisterInteractor()
+        let worker = RegisterWoker()
+        let presenter = RegisterPresenter()
+        let router = RegisterRouter()
+        let viewController = RegisterViewController()
         
         router.controller = viewController
         interactor.presenter = presenter

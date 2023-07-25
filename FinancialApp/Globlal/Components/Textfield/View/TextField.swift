@@ -103,7 +103,6 @@ private extension CommonTextField {
     }
     
     func configActionButtton() {
-//        buttonImage = SFImages.eye
         actionButton.isHidden = isButtonHidden
         guard let buttonImage else { return }
         actionButton.setImage(UIImage(systemName: buttonImage), for: .normal)
