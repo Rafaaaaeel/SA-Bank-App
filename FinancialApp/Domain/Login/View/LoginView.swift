@@ -1,6 +1,14 @@
 import UIKit
 
+protocol LoginViewDelegate: AnyObject {
+    func didTouchLogin()
+    func didTouchRegister()
+    func didTouchForgetPassword()
+}
+
 final class LoginView: UIView {
+    
+    weak var delegate: LoginViewDelegate?
     
     var leftConstraint = NSLayoutConstraint()
     var rightConstraint = NSLayoutConstraint()
@@ -67,6 +75,7 @@ final class LoginView: UIView {
         let button = CommonTextButton()
         button.shouldShowPlaceholder = true
         button.title = Text.signUpTitle
+        button.addTarget(self, action: #selector(didTouchCreateAccount), for: .touchUpInside)
         return button
     }()
     
@@ -77,10 +86,6 @@ final class LoginView: UIView {
     
     required init?(coder: NSCoder) {
         return nil
-    }
-    
-    @objc func didTouchLogin() {
-        animation()
     }
     
     private func dismissKeyboard() {
@@ -150,3 +155,23 @@ extension LoginView: CommonTextFieldActionDelegate {
     }
     
 }
+
+extension LoginView {
+    
+    @objc func didTouchLogin() {
+        animation()
+    }
+    
+    @objc func didTouchCreateAccount() {
+        
+        if let frame = loginButton.superview?.convert(loginButton.frame, to: nil) {
+            
+            print(frame)
+        }
+        delegate?.didTouchRegister()
+    }
+    
+}
+
+
+

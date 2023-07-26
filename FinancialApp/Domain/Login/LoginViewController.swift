@@ -1,11 +1,11 @@
 import UIKit
 
-class LoginViewController: UINavigationController {
+class LoginViewController: UIViewController {
     
     var interactor: LoginInteractorInput?
     var router: LoginRouterProtocol?
     
-    private var loginView: UIView = LoginView()
+    private var loginView: LoginView = LoginView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,6 +14,7 @@ class LoginViewController: UINavigationController {
     
     override func loadView() {
         super.loadView()
+        loginView.delegate = self
         view = loginView
     }
         
@@ -32,5 +33,19 @@ extension LoginViewController: LoginViewControllerProtocol {
 extension LoginViewController: LoginInteractorInput {
     
     func didLogin() { }
+    
+}
+
+extension LoginViewController: LoginViewDelegate {
+    
+    func didTouchLogin() {
+        router?.didLogin()
+    }
+    
+    func didTouchRegister() {
+        router?.didTouchToRegister()
+    }
+    
+    func didTouchForgetPassword() { }
     
 }

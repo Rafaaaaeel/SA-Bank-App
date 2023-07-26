@@ -22,9 +22,12 @@ extension LoginView {
             } completion: { _ in
                 UIView.animate(withDuration: 2, delay: 0.12) {
                     self.loginButton.transform = CGAffineTransform(scaleX: 400, y: 400)
+                } completion: { _ in
+                    self.delegate?.didTouchLogin()
                 }
             }
         }
     }
     
 }
+

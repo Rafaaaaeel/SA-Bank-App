@@ -19,7 +19,7 @@ protocol RegisterInteractorOutput: AnyObject {
 // ViewController -> Router
 protocol RegisterRouterProtocol: AnyObject {
     
-    var controller: UINavigationController? { get }
+    var controller: UIViewController? { get }
     
     func didRegister()
 }
