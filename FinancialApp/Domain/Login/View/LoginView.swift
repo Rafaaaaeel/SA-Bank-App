@@ -163,11 +163,6 @@ extension LoginView {
     }
     
     @objc func didTouchCreateAccount() {
-        
-        if let frame = loginButton.superview?.convert(loginButton.frame, to: nil) {
-            
-            print(frame)
-        }
         delegate?.didTouchRegister()
     }
     

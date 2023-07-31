@@ -7,7 +7,7 @@ class RegisterConfigurator {
         let router = RegisterRouter()
         let viewController = RegisterViewController()
         
-        router.controller = viewController
+        router.currentViewController = viewController
         interactor.presenter = presenter
         interactor.worker = worker
         presenter.view = viewController

@@ -1,10 +1,16 @@
 import UIKit
 
+protocol DebitsViewAnimationDelegate: AnyObject {
+    func didEndAnimation()
+}
+
 final class DebitsView: UIView {
+    
+    weak var animationDelegate: DebitsViewAnimationDelegate?
     
     private var animationHeightAnchor: NSLayoutConstraint = NSLayoutConstraint()
     
-    private lazy var animationView: UIView = {
+    lazy var animationView: UIView = {
         let view = UIView(frame: CGRect(x: 168, y: 400, width: 60, height: 60))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
@@ -42,21 +48,3 @@ extension DebitsView: CodableViews {
 }
 
 
-extension DebitsView {
-    
-    func animation() {
-        
-        UIView.animate(withDuration: 1.2) {
-
-            self.animationView.transform = CGAffineTransform(scaleX: 50, y: 50)
-            self.layoutIfNeeded()
-        } completion: { _ in
-            
-            UIView.animate(withDuration: 0.7, delay: 0.3) {
-                self.animationView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
-            }
-            
-        }
-    }
-    
-}

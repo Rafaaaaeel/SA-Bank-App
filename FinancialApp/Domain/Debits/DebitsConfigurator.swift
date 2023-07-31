@@ -1,3 +1,5 @@
+import UIKit
+
 final class DebitsConfigurator {
     
     static func view() -> DebitsViewController {
@@ -6,9 +8,7 @@ final class DebitsConfigurator {
         let presenter = DebitsPresenter()
         let router = DebitsRouter()
         let viewController = DebitsViewController()
-        
-        
-        router.controller = viewController
+        router.currentViewController = viewController
         interactor.presenter = presenter
         interactor.worker = worker
         presenter.view = viewController

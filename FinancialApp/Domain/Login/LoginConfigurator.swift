@@ -7,7 +7,7 @@ class LoginConfigurator {
         let router = LoginRouter()
         let viewController = LoginViewController()
         
-        router.controller = viewController
+        router.currentViewController = viewController
         interactor.presenter = presenter
         interactor.worker = worker
         presenter.view = viewController

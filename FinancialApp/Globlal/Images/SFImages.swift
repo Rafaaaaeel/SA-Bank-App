@@ -1,7 +1,13 @@
 struct SFImages {
     
-    static var envelope = "envelope"
-    static var eye = "eye"
-    static var lock = "lock"
+    static let envelope = "envelope"
+    static let eye = "eye"
+    static let lock = "lock"
     
+    // TabBar
+    
+    static let debits = "list.bullet.rectangle.portrait.fill"
+    static let account = "person.fill"
+    static let home = "house.fill"
+    static let search = "magnifyingglass"
 }

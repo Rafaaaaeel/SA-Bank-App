@@ -1,8 +1,6 @@
 import UIKit
 
-class LoginRouter: LoginRouterProtocol {
-    
-    var controller: UIViewController?
+class LoginRouter: AppRouter, LoginRouterProtocol {
     
     func didForgetPassword() {
         print("Forget password")
@@ -10,13 +8,11 @@ class LoginRouter: LoginRouterProtocol {
     
     
     func didTouchToRegister() {
-        controller?.navigationController?.pushViewController(RegisterConfigurator.view(), animated: true)
+        moveTo(RegisterConfigurator.view())
     }
     
     func didLogin() {
-        let viewController = DebitsConfigurator.view()
-        viewController.modalPresentationStyle = .fullScreen
-        controller?.present(viewController, animated: false)
+        rootViewController(AppConfigurator.view())
     }
     
 }

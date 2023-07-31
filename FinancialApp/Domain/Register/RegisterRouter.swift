@@ -1,9 +1,7 @@
 import UIKit
 
-final class RegisterRouter: RegisterRouterProtocol {
-    weak var controller: UIViewController?
+final class RegisterRouter: AppRouter, RegisterRouterProtocol {
     
     func didRegister() { }
-    
     
 }

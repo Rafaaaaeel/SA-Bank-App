@@ -1,8 +1,6 @@
 import UIKit
 
-final class DebitsRouter: DebitsRouterProtocol {
-    
-    var controller: UIViewController?
+final class DebitsRouter: AppRouter, DebitsRouterProtocol {
     
     func didTouchDebit() {
         

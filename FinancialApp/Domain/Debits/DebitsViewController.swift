@@ -9,6 +9,16 @@ class DebitsViewController: CommonViewController, DebitsViewControllerProtocol {
     
     override func loadView() {
         super.loadView()
+        debitsView.animationDelegate = self 
         view = debitsView
     }
+}
+
+
+extension DebitsViewController: DebitsViewAnimationDelegate {
+    
+    func didEndAnimation() {
+//        toggleTabbar()
+    }
+    
 }

@@ -18,8 +18,6 @@ protocol DebitsInteractorOutput: AnyObject {
 
 // ViewController -> Router
 protocol DebitsRouterProtocol: AnyObject {
-    var controller: UIViewController? { get }
-    
     func didTouchDebit()
 }
 
