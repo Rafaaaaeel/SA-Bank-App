@@ -11,11 +11,12 @@ struct Text {
     static var passwordPlaceholder = "Password"
     static var signUpTitle = "Sign up"
     
-    // TabBar
-    static let debits = "Debits"
-    static let account = "Account"
-    static let home = "Home"
-    static let search = "Search"
-    
+    struct TabBar {
+        static let debits = "Debits"
+        static let account = "Account"
+        static let home = "Home"
+        static let search = "Search"
+    }
+
 }
 

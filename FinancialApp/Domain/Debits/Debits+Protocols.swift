@@ -7,6 +7,7 @@ protocol DebitsPresenterOutput: AnyObject {
 
 // ViewController -> Interactor
 protocol DebitsInteractorInput: AnyObject {
+    func getDebits()
     func didTouchDebit()
 }
 
@@ -22,12 +23,24 @@ protocol DebitsRouterProtocol: AnyObject {
 }
 
 // Interactor -> Worker
-protocol DebitsWorkerProtocol: AnyObject {
+protocol DebitsWorkerProtocol: DebitWokerInputProtocol, AnyObject {
     var apiClient: APIClientProtocol { get }
+}
+
+protocol DebitWokerInputProtocol: AnyObject {
+    func getDebits()
+}
+
+protocol DebitWokerOutputProtocol: AnyObject {
+    func getDebitSucceded(debit: DebitsModel.ViewModel)
+    func getDebitFailed(error: Error)
 }
 
 // ViewController
 protocol DebitsViewControllerProtocol: AnyObject {
     var interactor: DebitsInteractorInput? { get }
     var router: DebitsRouterProtocol? { get }
+    
+    
+    func didLoad()
 }

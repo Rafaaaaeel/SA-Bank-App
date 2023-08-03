@@ -10,6 +10,8 @@
 		680C58CF2A65B785002FCEBB /* Primaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C58CE2A65B785002FCEBB /* Primaries.swift */; };
 		680C58D22A65BD98002FCEBB /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C58D12A65BD98002FCEBB /* Texts.swift */; };
 		680C58D52A65C59C002FCEBB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C58D42A65C59C002FCEBB /* TextField.swift */; };
+		6813343C2A77A79E006C8B82 /* DebitsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813343B2A77A79E006C8B82 /* DebitsCollectionView.swift */; };
+		6813343F2A77AF9B006C8B82 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813343E2A77AF9B006C8B82 /* RequestError.swift */; };
 		6813BA7A2A60E04B0091F9A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813BA792A60E04B0091F9A9 /* LoginViewController.swift */; };
 		6813BA7C2A60E0530091F9A9 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813BA7B2A60E0530091F9A9 /* LoginModel.swift */; };
 		6813BA7E2A60E0630091F9A9 /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813BA7D2A60E0630091F9A9 /* LoginConfigurator.swift */; };
@@ -61,12 +63,15 @@
 		68BA18312A6BAE4A007C40EE /* CommonTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BA18302A6BAE4A007C40EE /* CommonTextLabel.swift */; };
 		68BA18352A6BBBE1007C40EE /* CommonTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BA18342A6BBBE1007C40EE /* CommonTextButton.swift */; };
 		68BF4C502A6F251F00E94B3A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF4C4F2A6F251F00E94B3A /* UIStackView.swift */; };
+		68E25F3E2A77BD42006D3A93 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E25F3D2A77BD42006D3A93 /* Decoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		680C58CE2A65B785002FCEBB /* Primaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primaries.swift; sourceTree = "<group>"; };
 		680C58D12A65BD98002FCEBB /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		680C58D42A65C59C002FCEBB /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		6813343B2A77A79E006C8B82 /* DebitsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitsCollectionView.swift; sourceTree = "<group>"; };
+		6813343E2A77AF9B006C8B82 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		6813BA792A60E04B0091F9A9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6813BA7B2A60E0530091F9A9 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		6813BA7D2A60E0630091F9A9 /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
@@ -120,6 +125,7 @@
 		68BA18302A6BAE4A007C40EE /* CommonTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextLabel.swift; sourceTree = "<group>"; };
 		68BA18342A6BBBE1007C40EE /* CommonTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextButton.swift; sourceTree = "<group>"; };
 		68BF4C4F2A6F251F00E94B3A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		68E25F3D2A77BD42006D3A93 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,30 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		681334392A77A776006C8B82 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				686FF4812A732DF600E660FC /* DebitsView+Animations.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		6813343A2A77A77B006C8B82 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				6813343B2A77A79E006C8B82 /* DebitsCollectionView.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		6813343D2A77AF8A006C8B82 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				6813343E2A77AF9B006C8B82 /* RequestError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		6813BA892A60F7740091F9A9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				6813FC392A70CDAE00BFD7FE /* DebitsView.swift */,
-				686FF4812A732DF600E660FC /* DebitsView+Animations.swift */,
+				6813343A2A77A77B006C8B82 /* Collection */,
+				681334392A77A776006C8B82 /* Animation */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -408,6 +439,8 @@
 		68398D8C2A60C64A00C108A4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				68E25F3C2A77BD00006D3A93 /* Decoder */,
+				6813343D2A77AF8A006C8B82 /* Error */,
 				68398D8F2A60C66100C108A4 /* Protocols */,
 				68398D8D2A60C65500C108A4 /* APIClient.swift */,
 			);
@@ -499,6 +532,14 @@
 			path = UIStackView;
 			sourceTree = "<group>";
 		};
+		68E25F3C2A77BD00006D3A93 /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				68E25F3D2A77BD42006D3A93 /* Decoder.swift */,
+			);
+			path = Decoder;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -577,6 +618,7 @@
 				68B0FE822A70445E00E2C7E9 /* RegisterInteractor.swift in Sources */,
 				6824B50A2A69E57200D6A12D /* CommonTitleLabel.swift in Sources */,
 				6820B3562A68FB93008C3211 /* CommonWhiteButton.swift in Sources */,
+				6813343C2A77A79E006C8B82 /* DebitsCollectionView.swift in Sources */,
 				6813BA802A60E0720091F9A9 /* Login+Protocols.swift in Sources */,
 				686FF4792A70D9B600E660FC /* CommonViewController.swift in Sources */,
 				6813BA8B2A60F7800091F9A9 /* CodableView.swift in Sources */,
@@ -588,6 +630,7 @@
 				6813BA7C2A60E0530091F9A9 /* LoginModel.swift in Sources */,
 				6813FC2B2A70CD6700BFD7FE /* DebitsConfigurator.swift in Sources */,
 				68A665B12A705BBD0074D8A7 /* LoginView+Animations.swift in Sources */,
+				6813343F2A77AF9B006C8B82 /* RequestError.swift in Sources */,
 				68B0FE882A70447A00E2C7E9 /* RegisterViewController.swift in Sources */,
 				6813FC352A70CD9900BFD7FE /* DebitsRouter.swift in Sources */,
 				6813BA842A60E08C0091F9A9 /* LoginPresenter.swift in Sources */,
@@ -612,6 +655,7 @@
 				686FF4822A732DF600E660FC /* DebitsView+Animations.swift in Sources */,
 				68BA18312A6BAE4A007C40EE /* CommonTextLabel.swift in Sources */,
 				68B0FE862A70446E00E2C7E9 /* RegisterRouter.swift in Sources */,
+				68E25F3E2A77BD42006D3A93 /* Decoder.swift in Sources */,
 				68398D6C2A60C3E400C108A4 /* SceneDelegate.swift in Sources */,
 				6826E4E62A6715BA005A2BB8 /* SFImages.swift in Sources */,
 				68B0FE802A70445600E2C7E9 /* RegisterModel.swift in Sources */,

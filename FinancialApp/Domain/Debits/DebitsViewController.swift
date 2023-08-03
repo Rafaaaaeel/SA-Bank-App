@@ -7,10 +7,19 @@ class DebitsViewController: CommonViewController, DebitsViewControllerProtocol {
     
     private let debitsView = DebitsView()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        didLoad()
+    }
+    
     override func loadView() {
         super.loadView()
         debitsView.animationDelegate = self 
         view = debitsView
+    }
+    
+    func didLoad() {
+        interactor?.getDebits()
     }
 }
 

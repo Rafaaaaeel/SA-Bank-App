@@ -1,7 +1,12 @@
+import Foundation
+
 struct DebitsModel {
     
-    struct Request {
+    struct Request: RequestProtocol  {
         
+        var endpoint: String = "debits"
+        var params: [String : String]?
+    
     }
     
     struct Response {

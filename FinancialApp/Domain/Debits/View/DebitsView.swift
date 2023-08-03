@@ -41,9 +41,7 @@ extension DebitsView: CodableViews {
         addSubview(animationView)
     }
     
-    func setupContraints() {
-        
-    }
+    func setupContraints() { }
 
 }
 

@@ -8,9 +8,11 @@ final class DebitsInteractor: DebitsInteractorOutput {
 }
 
 extension DebitsInteractor: DebitsInteractorInput {
-    
-    func didTouchDebit() {
-        
+    func getDebits() {
+        worker?.getDebits()
     }
+    
+    
+    func didTouchDebit() {}
     
 }

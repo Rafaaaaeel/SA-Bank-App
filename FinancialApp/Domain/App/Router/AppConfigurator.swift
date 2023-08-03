@@ -3,6 +3,8 @@ import UIKit
 class AppConfigurator {
     
     static func view() -> UIViewController {
+
+//        TODO: - Verify logged user later
         
 //        let userLogged = true
 //
@@ -20,10 +22,10 @@ class AppConfigurator {
         debitsViewController.setStatusBar()
         
         
-        debitsViewController.setTabBarImage(imageName: SFImages.debits, title: Text.debits)
-        accountViewController.setTabBarImage(imageName: SFImages.account, title: Text.account)
-        homeViewController.setTabBarImage(imageName: SFImages.home, title: Text.home)
-        searchViewController.setTabBarImage(imageName: SFImages.search, title: Text.search)
+        debitsViewController.setTabBarImage(imageName: SFImages.TabBar.debits, title: Text.TabBar.debits)
+        accountViewController.setTabBarImage(imageName: SFImages.TabBar.account, title: Text.TabBar.account)
+        homeViewController.setTabBarImage(imageName: SFImages.TabBar.home, title: Text.TabBar.home)
+        searchViewController.setTabBarImage(imageName: SFImages.TabBar.search, title: Text.TabBar.search)
         
         
         tabController.viewControllers = [homeViewController,
