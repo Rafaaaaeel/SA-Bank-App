@@ -16,3 +16,16 @@ extension DebitsInteractor: DebitsInteractorInput {
     func didTouchDebit() {}
     
 }
+
+extension DebitsInteractor: DebitWokerOutputProtocol {
+    
+    func getDebitSucceded(viewModel: DebitsModel.ViewModel) {
+        presenter?.succededView()
+    }
+    
+    func getDebitFailed(error: Error) {
+        presenter?.failedView()
+    }
+    
+    
+}

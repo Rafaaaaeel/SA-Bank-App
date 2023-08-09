@@ -2,21 +2,31 @@ import UIKit
 
 final class DebitsCollectionView: UICollectionView {
     
-}
-
-extension DebitsCollectionView: UICollectionViewDelegate {
+    var adapter: DebitsDelegate
+    var source: DebitsDataSource
     
-}
-
-extension DebitsCollectionView: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+    init(adapter: DebitsDelegate = DebitsDelegate(), source: DebitsDataSource = DebitsDataSource(), width: Double) {
+        self.adapter = adapter
+        self.source = source
+        self.adapter.width = width
+        super.init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        configure()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+    required init?(coder: NSCoder) {
+        return nil
     }
     
+}
+
+extension DebitsCollectionView {
+    
+    private func configure() {
+        dataSource = source
+        delegate = adapter
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .clear
+    }
     
 }
+

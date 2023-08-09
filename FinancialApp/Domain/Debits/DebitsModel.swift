@@ -1,5 +1,8 @@
 import Foundation
 
+
+typealias Debits = DebitsModel.Response
+
 struct DebitsModel {
     
     struct Request: RequestProtocol  {
@@ -9,12 +12,10 @@ struct DebitsModel {
     
     }
     
-    struct Response {
-        
+    struct Response: Codable {
+        let data: [Debit]
     }
     
-    struct ViewModel {
-        
-    }
+    struct ViewModel { }
     
 }

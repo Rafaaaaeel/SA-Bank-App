@@ -21,7 +21,6 @@ class AppConfigurator {
         tabController.tabBar.tintColor = .white
         debitsViewController.setStatusBar()
         
-        
         debitsViewController.setTabBarImage(imageName: SFImages.TabBar.debits, title: Text.TabBar.debits)
         accountViewController.setTabBarImage(imageName: SFImages.TabBar.account, title: Text.TabBar.account)
         homeViewController.setTabBarImage(imageName: SFImages.TabBar.home, title: Text.TabBar.home)
@@ -31,7 +30,7 @@ class AppConfigurator {
         tabController.viewControllers = [homeViewController,
                                          debitsViewController,
                                          searchViewController,
-                                         accountViewController ]
+                                         accountViewController]
         tabController.selectedIndex = 1
         
         return tabController

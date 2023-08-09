@@ -15,9 +15,11 @@ final class DebitsView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.cornerRadius = 30
-        view.transform = CGAffineTransform(scaleX: 1000, y: 1000)
+        view.transform = CGAffineTransform(scaleX: 600, y: 600)
         return view
     }()
+    
+    private lazy var collectionView = DebitsCollectionView(width: frame.size.width.toDouble)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,11 +40,20 @@ extension DebitsView: CodableViews {
     }
     
     func setupHiearchy() {
+        addSubview(collectionView)
         addSubview(animationView)
     }
     
-    func setupContraints() { }
+    func setupContraints() {
+        
+        let collectionConstraints = [
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(collectionConstraints)
+    }
 
 }
-
-

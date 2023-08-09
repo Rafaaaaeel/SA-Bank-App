@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  FinancialApp
-//
-//  Created by Rafael pessoal on 13/07/23.
-//
-
 import UIKit
 
 @main

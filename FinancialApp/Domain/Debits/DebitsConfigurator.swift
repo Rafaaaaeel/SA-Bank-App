@@ -11,6 +11,7 @@ final class DebitsConfigurator {
         router.currentViewController = viewController
         interactor.presenter = presenter
         interactor.worker = worker
+        worker.output = interactor
         presenter.view = viewController
         viewController.interactor = interactor
         viewController.router = router
