@@ -1,6 +1,6 @@
 import UIKit
 
-class DebitsViewController: CommonViewController, DebitsViewControllerProtocol {
+final class DebitsViewController: CommonViewController, DebitsViewControllerProtocol {
 
     var interactor: DebitsInteractorInput?
     var router: DebitsRouterProtocol?
@@ -9,7 +9,7 @@ class DebitsViewController: CommonViewController, DebitsViewControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        didLoad()
+        didLoadView()
     }
     
     override func loadView() {
@@ -18,9 +18,14 @@ class DebitsViewController: CommonViewController, DebitsViewControllerProtocol {
         view = debitsView
     }
     
-    func didLoad() {
+    func didLoadView() {
         interactor?.getDebits()
     }
+
+    func didLoadData(_ viewModel: DebitsModel.ViewModel) {
+        debitsView.model = viewModel
+    }
+
 }
 
 
@@ -28,6 +33,16 @@ extension DebitsViewController: DebitsViewAnimationDelegate {
     
     func didEndAnimation() {
         toggleTabbar()
+        updateUI()
+    }
+    
+}
+
+
+extension DebitsViewController {
+    
+    private func updateUI() {
+        debitsView.width = (view.frame.size.width / 2.0) - 30.0
     }
     
 }

@@ -16,6 +16,8 @@ struct DebitsModel {
         let data: [Debit]
     }
     
-    struct ViewModel { }
+    struct ViewModel {
+        let model: [String: [String]]
+    }
     
 }

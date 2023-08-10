@@ -1,10 +1,24 @@
 import UIKit
+ 
+typealias Model = DebitsModel.ViewModel
 
 protocol DebitsViewAnimationDelegate: AnyObject {
     func didEndAnimation()
 }
 
 final class DebitsView: UIView {
+    
+    var model: Model? {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    lazy var width: CGFloat = 0 {
+        didSet {
+            updateUI()
+        }
+    }
     
     weak var animationDelegate: DebitsViewAnimationDelegate?
     
@@ -19,7 +33,7 @@ final class DebitsView: UIView {
         return view
     }()
     
-    private lazy var collectionView = DebitsCollectionView(width: frame.size.width.toDouble)
+    private lazy var collectionView = DebitsCollectionView(width: width)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +45,12 @@ final class DebitsView: UIView {
         return nil
     }
     
+    func updateUI() {
+        collectionView.append(model)
+        collectionView.set(width: width)
+        collectionView.reload()
+    }
+    
 }
 
 extension DebitsView: CodableViews {
@@ -40,15 +60,13 @@ extension DebitsView: CodableViews {
     }
     
     func setupHiearchy() {
-        addSubview(collectionView)
-        addSubview(animationView)
+        addSubviews(collectionView, animationView)
     }
     
     func setupContraints() {
-        
         let collectionConstraints = [
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ]

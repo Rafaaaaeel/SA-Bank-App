@@ -11,16 +11,12 @@ final class DebitsWorker: DebitsWorkerProtocol {
         Task {
             do {
                 let request = DebitsModel.Request(endpoint: "debits")
-                let data: DebitsModel.Response = try await apiClient.requestData(request: request)
-                print(data)
-//                let viewModel = data as? DebitsModel.ViewModel
-//                output?.getDebitSucceded(viewModel: viewModel!)
+                let response: DebitsModel.Response = try await apiClient.requestData(request: request)
+                output?.getDebitSucceded(response: response)
             } catch let error {
                 print(error)
             }
         }
-        
-        
     }
 }
 

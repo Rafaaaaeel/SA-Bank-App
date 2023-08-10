@@ -4,7 +4,7 @@ import UIKit
 protocol DebitsPresenterOutput: AnyObject {
     var view: DebitsViewControllerProtocol? { get }
     
-    func succededView()
+    func succededView(_ viewModel: DebitsModel.ViewModel)
     func failedView()
 }
 
@@ -36,7 +36,7 @@ protocol DebitWokerInputProtocol: AnyObject {
 }
 
 protocol DebitWokerOutputProtocol: AnyObject {
-    func getDebitSucceded(viewModel: DebitsModel.ViewModel)
+    func getDebitSucceded(response: DebitsModel.Response)
     func getDebitFailed(error: Error)
 }
 
@@ -45,6 +45,6 @@ protocol DebitsViewControllerProtocol: AnyObject {
     var interactor: DebitsInteractorInput? { get }
     var router: DebitsRouterProtocol? { get }
     
-    
-    func didLoad()
+    func didLoadView()
+    func didLoadData(_ viewModel: DebitsModel.ViewModel)
 }
