@@ -80,7 +80,7 @@ extension DebitsView: CodableViews {
             collectionView.topAnchor.constraint(equalToSystemSpacingBelow: headerView.bottomAnchor, multiplier: 0),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ]
         
         NSLayoutConstraint.activeAll(headerViewConstraints, collectionConstraints)
@@ -94,12 +94,19 @@ extension DebitsView: DebitsCollectionViewDelegate {
         print(index)
     }
     
-    func didScroll(y: Double) {
-        guard -y > -120 else { return }
-        let alpha = y / 100
+    func didScroll(_ scrollView: UIScrollView) {
+        let y = scrollView.contentOffset.y
+        let mod = y.truncatingRemainder(dividingBy: scrollView.bounds.size.height )
+        let difference = abs((2 * mod / (scrollView.bounds.size.height - 310)) - 1)
+        let factor = y > 140 ? 0 : difference
         DispatchQueue.main.async {
-            self.headerTopAnchor.constant = -y
-            self.headerView.alpha = alpha
+            self.headerTopAnchor.constant = -y > -140 ? -y : -140
+            if y > 75 {
+                self.headerView.animation()
+            } else {
+                self.headerView.reset()
+            }
+            self.headerView.titleLabel.alpha = factor
             self.layoutSubviews()
         }
         

@@ -26,7 +26,6 @@ class AppConfigurator {
         homeViewController.setTabBarImage(imageName: SFImages.TabBar.home, title: Text.TabBar.home)
         searchViewController.setTabBarImage(imageName: SFImages.TabBar.search, title: Text.TabBar.search)
         
-        
         tabController.viewControllers = [homeViewController,
                                          debitsViewController,
                                          searchViewController,

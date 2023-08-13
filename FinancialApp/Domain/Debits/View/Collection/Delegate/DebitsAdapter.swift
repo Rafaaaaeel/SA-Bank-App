@@ -3,7 +3,7 @@ import UIKit
 protocol DebitsAdapterDelegate: AnyObject {
     
     func didTouchItem(at index: Int)
-    func didScroll(y: Double)
+    func didScroll(_ scrollView: UIScrollView)
     
 }
 
@@ -34,7 +34,7 @@ extension DebitsAdapter: UICollectionViewDelegateFlowLayout {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegate?.didScroll(y: scrollView.contentOffset.y)
+        delegate?.didScroll(scrollView)
     }
     
 }

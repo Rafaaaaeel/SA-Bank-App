@@ -13,7 +13,10 @@ final class DebitsHeaderView: UIView {
 
     weak var delegate: DebitsHeaderViewDelegate?
     
-    private lazy var titleLabel: CommonTitleLabel = {
+    private var searchTextFieldConstraint = NSLayoutConstraint()
+    private var createButtonConstraint = NSLayoutConstraint()
+    
+    lazy var titleLabel: CommonTitleLabel = {
         let label = CommonTitleLabel()
         label.text = Text.Debits.headerTitle
         return label
@@ -27,7 +30,7 @@ final class DebitsHeaderView: UIView {
         return textField
     }()
     
-    private lazy var createButton: CommonWhiteButton = {
+    lazy var createButton: CommonWhiteButton = {
         let button = CommonWhiteButton()
         button.isPressAnimationActive = true
         let image = UIImage(systemName: SFImages.Debits.create, withConfiguration: UIImage.SymbolConfiguration(scale: .large))
@@ -36,7 +39,6 @@ final class DebitsHeaderView: UIView {
         button.addTarget(self, action: #selector(didTouchCreate), for: .touchUpInside)
         return button
     }()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,6 +53,35 @@ final class DebitsHeaderView: UIView {
         delegate?.didTouchCreate()
     }
     
+    func animation() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.4) {
+                self.searchTextFieldConstraint.constant = -80
+                self.searchTextField.commonPlaceholder = "Hope you find it"//Text.Debits.searchPlaceholder
+                self.layoutIfNeeded()
+            } completion: { _ in
+                UIView.animate(withDuration: 0.4, delay: 0.1) {
+                    self.createButtonConstraint.constant = 90
+                    self.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    func reset() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.4) {
+                self.createButtonConstraint.constant = 0
+                self.layoutIfNeeded()
+            } completion: { _ in
+                UIView.animate(withDuration: 0.4, delay: 0.1) {
+                    self.searchTextField.commonPlaceholder = Text.Debits.searchPlaceholder
+                    self.searchTextFieldConstraint.constant = 0
+                    self.layoutIfNeeded()
+                }
+            }
+        }
+    }
 }
 
 
@@ -69,9 +100,11 @@ extension DebitsHeaderView: CodableViews {
     func setupContraints() {
         self.heightAnchor.constraint(equalToConstant: 300).isActive = true
         
+        createButtonConstraint = createButton.centerYAnchor.constraint(equalTo: centerYAnchor)
+        
         let createButtonConstraints = [
             createButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            createButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            createButtonConstraint,
             createButton.widthAnchor.constraint(equalToConstant: 60)
         ]
         
@@ -81,11 +114,12 @@ extension DebitsHeaderView: CodableViews {
             trailingAnchor.constraint(equalToSystemSpacingAfter: titleLabel.trailingAnchor, multiplier: 2)
         ]
         
+        searchTextFieldConstraint =  searchTextField.trailingAnchor.constraint(equalTo: createButton.trailingAnchor)
         
         let searchTextFieldConstraints = [
             searchTextField.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 2),
             searchTextField.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            searchTextField.trailingAnchor.constraint(equalTo: createButton.trailingAnchor)
+            searchTextFieldConstraint
         ]
         
         NSLayoutConstraint.activeAll(titleLabelConstraints, createButtonConstraints, searchTextFieldConstraints)
