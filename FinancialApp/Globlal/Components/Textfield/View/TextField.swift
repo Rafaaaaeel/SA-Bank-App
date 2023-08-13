@@ -11,6 +11,7 @@ final class CommonTextField: UIView {
     }
     
     weak var actionDelegate: CommonTextFieldActionDelegate?
+    weak var textDelegate: CommonTextFieldDelegate?
     
     public var isButtonHidden = false {
         didSet {
@@ -175,10 +176,12 @@ extension CommonTextField: CodableViews {
 extension CommonTextField: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textDelegate?.didStartEdditing()
         state = .selected
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        textDelegate?.didEndEdditting()
         state = textField.text.nilOrEmpty.isEmpty ? .deselected : .selected
     }
     

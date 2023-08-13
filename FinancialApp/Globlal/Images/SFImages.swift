@@ -11,4 +11,8 @@ struct SFImages {
         static let search = "magnifyingglass"
     }
     
+    struct Debits {
+        static let create = "plus"
+    }
+    
 }

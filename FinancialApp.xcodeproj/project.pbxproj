@@ -54,7 +54,7 @@
 		6826E4EE2A672014005A2BB8 /* Textfields+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6826E4ED2A672014005A2BB8 /* Textfields+Protocols.swift */; };
 		6826E4F12A675F52005A2BB8 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6826E4F02A675F52005A2BB8 /* NSLayoutConstraint.swift */; };
 		68271A012A8377EC00032C8D /* DebitsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68271A002A8377EC00032C8D /* DebitsDataSource.swift */; };
-		68271A032A83780600032C8D /* DebitsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68271A022A83780600032C8D /* DebitsDelegate.swift */; };
+		68271A032A83780600032C8D /* DebitsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68271A022A83780600032C8D /* DebitsAdapter.swift */; };
 		68281EA02A7BB36500D9C5BF /* DebitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68281E9F2A7BB36500D9C5BF /* DebitModel.swift */; };
 		68398D6A2A60C3E400C108A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68398D692A60C3E400C108A4 /* AppDelegate.swift */; };
 		68398D6C2A60C3E400C108A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68398D6B2A60C3E400C108A4 /* SceneDelegate.swift */; };
@@ -134,7 +134,7 @@
 		6826E4ED2A672014005A2BB8 /* Textfields+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Textfields+Protocols.swift"; sourceTree = "<group>"; };
 		6826E4F02A675F52005A2BB8 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		68271A002A8377EC00032C8D /* DebitsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitsDataSource.swift; sourceTree = "<group>"; };
-		68271A022A83780600032C8D /* DebitsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitsDelegate.swift; sourceTree = "<group>"; };
+		68271A022A83780600032C8D /* DebitsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitsAdapter.swift; sourceTree = "<group>"; };
 		68281E9F2A7BB36500D9C5BF /* DebitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitModel.swift; sourceTree = "<group>"; };
 		68398D662A60C3E400C108A4 /* FinancialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68398D692A60C3E400C108A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -411,7 +411,7 @@
 		682719FF2A8377D700032C8D /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				68271A022A83780600032C8D /* DebitsDelegate.swift */,
+				68271A022A83780600032C8D /* DebitsAdapter.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -815,7 +815,7 @@
 				6813FC2D2A70CD7000BFD7FE /* DebitsModel.swift in Sources */,
 				68145C8E2A88F56D0047CED7 /* String.swift in Sources */,
 				68BA18352A6BBBE1007C40EE /* CommonTextButton.swift in Sources */,
-				68271A032A83780600032C8D /* DebitsDelegate.swift in Sources */,
+				68271A032A83780600032C8D /* DebitsAdapter.swift in Sources */,
 				6813FC292A70CD5500BFD7FE /* Debits+Protocols.swift in Sources */,
 				686AA9902A863CCE009CF21B /* DebitsHeaderView.swift in Sources */,
 				6813FC312A70CD8A00BFD7FE /* DebitsWorker.swift in Sources */,

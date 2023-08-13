@@ -1,13 +1,22 @@
 import UIKit
 
+protocol DebitsCollectionViewDelegate: AnyObject {
+    
+    func didTouchItem(at index: Int)
+    func didScroll(y: Double)
+    
+}
+
 final class DebitsCollectionView: UICollectionView {
     
-    var adapter: DebitsDelegate
+    var adapter: DebitsAdapter
     var source: DebitsDataSource
+    weak var collectionDelegate: DebitsCollectionViewDelegate?
     
-    init(adapter: DebitsDelegate = DebitsDelegate(), source: DebitsDataSource = DebitsDataSource(), width: Double) {
+    init(adapter: DebitsAdapter = DebitsAdapter(), source: DebitsDataSource = DebitsDataSource(), delegate: DebitsCollectionViewDelegate, width: Double) {
         self.adapter = adapter
         self.source = source
+        self.collectionDelegate = delegate
         super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         configure()
     }
@@ -35,6 +44,7 @@ final class DebitsCollectionView: UICollectionView {
 extension DebitsCollectionView {
     
     private func configure() {
+        adapter.delegate = self 
         showsVerticalScrollIndicator = false
         dataSource = source
         delegate = adapter
@@ -45,3 +55,14 @@ extension DebitsCollectionView {
     
 }
 
+extension DebitsCollectionView: DebitsAdapterDelegate {
+    
+    func didTouchItem(at index: Int) {
+        collectionDelegate?.didTouchItem(at: index)
+    }
+    
+    func didScroll(y: Double) {
+        collectionDelegate?.didScroll(y: y)
+    }
+    
+}

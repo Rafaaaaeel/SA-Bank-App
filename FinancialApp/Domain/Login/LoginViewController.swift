@@ -26,7 +26,7 @@ extension LoginViewController: LoginViewControllerProtocol {
     
     func didLoginSuccess() { }
     
-    func didLoginFailed() { }
+    func didLoginFailed() { }   
     
 }
 

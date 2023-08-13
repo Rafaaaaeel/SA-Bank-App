@@ -31,7 +31,7 @@ final class DebitsViewController: CommonViewController, DebitsViewControllerProt
 extension DebitsViewController: DebitsViewAnimationDelegate {
     
     func didEndAnimation() {
-        toggleTabbar()
+//        toggleTabbar()
         updateUI()
     }
     

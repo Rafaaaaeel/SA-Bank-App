@@ -21,9 +21,7 @@ final class DebitsView: UIView {
     }
     
     weak var animationDelegate: DebitsViewAnimationDelegate?
-    
-    private var animationHeightAnchor: NSLayoutConstraint = NSLayoutConstraint()
-    
+
     lazy var animationView: UIView = {
         let view = UIView(frame: CGRect(x: 168, y: 400, width: 60, height: 60))
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +31,11 @@ final class DebitsView: UIView {
         return view
     }()
     
-    private lazy var collectionView = DebitsCollectionView(width: width)
+    private var animationHeightAnchor: NSLayoutConstraint = NSLayoutConstraint()
+    private var headerTopAnchor: NSLayoutConstraint = NSLayoutConstraint()
+    
+    private lazy var headerView = DebitsHeaderView()
+    private lazy var collectionView = DebitsCollectionView(delegate: self, width: width)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,21 +59,70 @@ extension DebitsView: CodableViews {
     
     func configView() {
         backgroundColor = .primaryBackground
+        headerView.delegate = self
     }
     
     func setupHiearchy() {
-        addSubviews(collectionView, animationView)
+        addSubviews(headerView, collectionView, animationView)
     }
     
     func setupContraints() {
-        let collectionConstraints = [
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        
+        headerTopAnchor = headerView.topAnchor.constraint(equalTo: topAnchor, constant: 0)
+        
+        let headerViewConstraints = [
+            headerTopAnchor,
+            headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]
         
-        NSLayoutConstraint.activate(collectionConstraints)
+        let collectionConstraints = [
+            collectionView.topAnchor.constraint(equalToSystemSpacingBelow: headerView.bottomAnchor, multiplier: 0),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        ]
+        
+        NSLayoutConstraint.activeAll(headerViewConstraints, collectionConstraints)
     }
 
+}
+
+extension DebitsView: DebitsCollectionViewDelegate {
+    
+    func didTouchItem(at index: Int) {
+        print(index)
+    }
+    
+    func didScroll(y: Double) {
+        guard -y > -120 else { return }
+        let alpha = y / 100
+        DispatchQueue.main.async {
+            self.headerTopAnchor.constant = -y
+            self.headerView.alpha = alpha
+            self.layoutSubviews()
+        }
+        
+    }
+    
+}
+
+extension DebitsView: DebitsHeaderViewDelegate {
+    
+    func didTouchCreate() {
+        print("Create")
+    }
+    
+    func didStartEdditing() {
+        
+    }
+    
+    func didEndEdditting() {
+        
+    }
+    
+    func didChangedText() {
+        
+    }
+    
 }

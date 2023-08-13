@@ -23,8 +23,9 @@ struct Text {
         static let search = "Search"
     }
     
-    struct Debit {
-        
+    struct Debits {
+        static let headerTitle = "Hey, \nhere they are! "
+        static let searchPlaceholder = "Looking for an specific one"
     }
 
 }
