@@ -28,7 +28,6 @@ final class DebitsViewController: CommonViewController, DebitsViewControllerProt
 
 }
 
-
 extension DebitsViewController: DebitsViewAnimationDelegate {
     
     func didEndAnimation() {
@@ -37,7 +36,6 @@ extension DebitsViewController: DebitsViewAnimationDelegate {
     }
     
 }
-
 
 extension DebitsViewController {
     

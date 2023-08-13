@@ -32,13 +32,13 @@ final class LoginView: UIView {
     
     private lazy var titleLabel: CommonTitleLabel = {
         let label = CommonTitleLabel()
-        label.text = Text.loginTitle
+        label.text = Text.Login.loginTitle
         return label
     }()
     
     private lazy var emailTextField: CommonTextField = {
         let field = CommonTextField()
-        field.commonPlaceholder = Text.emailPlaceholder
+        field.commonPlaceholder = Text.Login.emailPlaceholder
         field.iconImage = SFImages.envelope
         field.actionDelegate = self
         field.isButtonHidden = true
@@ -47,7 +47,7 @@ final class LoginView: UIView {
     
     private lazy var passwordTextField: CommonTextField = {
         let field = CommonTextField()
-        field.commonPlaceholder = Text.passwordPlaceholder
+        field.commonPlaceholder = Text.Login.passwordPlaceholder
         field.iconImage = SFImages.lock
         
         field.actionDelegate = self
@@ -58,13 +58,13 @@ final class LoginView: UIView {
     
     lazy var forgotPasswordButton: CommonTextButton = {
         let button = CommonTextButton()
-        button.title = Text.forgotPasswordTitle
+        button.title = Text.Login.forgotPasswordTitle
         return button
     }()
     
     lazy var loginButton: CommonWhiteButton = {
         let button = CommonWhiteButton()
-        button.title = Text.loginButtonTitle
+        button.title = Text.Login.loginButtonTitle
         button.height = 200
         button.addTarget(self, action: #selector(didTouchLogin), for: .touchUpInside)
         button.isPressAnimationActive = false
@@ -74,7 +74,7 @@ final class LoginView: UIView {
     private lazy var createAccountButton: CommonTextButton = {
         let button = CommonTextButton()
         button.shouldShowPlaceholder = true
-        button.title = Text.signUpTitle
+        button.title = Text.Login.signUpTitle
         button.addTarget(self, action: #selector(didTouchCreateAccount), for: .touchUpInside)
         return button
     }()

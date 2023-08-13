@@ -17,7 +17,12 @@ struct DebitsModel {
     }
     
     struct ViewModel {
-        let model: [String: [String]]
+        let data: [Debit]
+
+        var cout: Int {
+            return data.count
+        }
+        
     }
     
 }

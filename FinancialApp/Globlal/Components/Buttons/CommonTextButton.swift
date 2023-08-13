@@ -41,7 +41,9 @@ class CommonTextButton: UIButton {
         ]
         
         let attributedText = NSMutableAttributedString(string: title, attributes: attributes)
-        let placeholderText = NSMutableAttributedString(string: Text.createAccountText, attributes: placeholderAtributes)
+        
+        // TODO: It Needs to be refactor, will use dynamic parameter as placeholder
+        let placeholderText = NSMutableAttributedString(string: Text.Login.createAccountText, attributes: placeholderAtributes)
         
         if shouldShowPlaceholder {
             placeholderText.append(attributedText)

@@ -6,11 +6,11 @@ class AppConfigurator {
 
 //        TODO: - Verify logged user later
         
-//        let userLogged = true
-//
-//        guard userLogged else {
-//            return LoginConfigurator.view()
-//        }
+        let userLogged = true
+
+        guard userLogged else {
+            return LoginConfigurator.view()
+        }
         
         let debitsViewController = DebitsConfigurator.view()
         let accountViewController = UIViewController()

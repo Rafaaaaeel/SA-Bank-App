@@ -20,7 +20,7 @@ extension DebitsInteractor: DebitsInteractorInput {
 extension DebitsInteractor: DebitWokerOutputProtocol {
     
     func getDebitSucceded(response: DebitsModel.Response) {
-        let viewModel = DebitsModel.ViewModel(model: ["title": response.data.compactMap( { $0.name } ), "color": response.data.compactMap( { $0.color } )])
+        let viewModel = DebitsModel.ViewModel(data: response.data)
         presenter?.succededView(viewModel)
     }
     

@@ -7,9 +7,10 @@ final class DebitCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 37)
+        label.textAlignment = .left
+        label.font = UIFont.boldSystemFont(ofSize: 26)
         label.textColor = .white
+        label.numberOfLines = 0
         return label
     }()
     
@@ -17,7 +18,7 @@ final class DebitCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 30)
         label.textColor = .white
         return label
     }()
@@ -47,20 +48,32 @@ extension DebitCollectionViewCell: CodableViews {
     }
     
     func setupHiearchy() {
-    
+        addSubviews(titleLabel, valueLabel)
     }
     
     func setupContraints() {
+        let titleLabelConstraint = [
+            titleLabel.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 2),
+            titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: titleLabel.trailingAnchor, multiplier: 2)
+        ]
         
-    }
-    
+        let valueLabelConstraint = [
+            valueLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 1),
+            valueLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
 
-    
+        ]
+        
+        NSLayoutConstraint.activeAll(titleLabelConstraint, valueLabelConstraint)
+    }
+
 }
 
 extension DebitCollectionViewCell {
     
-    func render(title: String, color: String) {
+    func render(title: String, color: String, value: String) {
+        titleLabel.text = title
+        valueLabel.text = value
         backgroundColor = UIColor(hex: color)
     }
     

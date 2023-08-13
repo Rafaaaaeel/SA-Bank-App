@@ -6,6 +6,7 @@ struct Debit: Codable {
     let description: String
     let color: String
     let debits: [Detail]
+    let total: Double?
 }
 
 struct Detail: Codable {
