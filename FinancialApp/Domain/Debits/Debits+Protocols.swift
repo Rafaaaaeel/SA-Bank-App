@@ -7,7 +7,7 @@ protocol DebitsPresenterOutput: AnyObject {
     func succededView(_ viewModel: DebitsModel.ViewModel)
     func failedView()
     
-    func deleteDebitSucceded()
+    func deleteDebitSucceded(_ viewModel: DebitsModel.ViewModel)
 }
 
 // ViewController -> Interactor
@@ -43,7 +43,7 @@ protocol DebitWokerOutputProtocol: AnyObject {
     func getDebitSucceded(response: DebitsModel.Response)
     func getDebitFailed(error: Error)
     
-    func deleteDebitSucced()
+    func deleteDebitSucced(response: DebitsModel.Response)
 }
 
 // ViewController
@@ -53,5 +53,5 @@ protocol DebitsViewControllerProtocol: AnyObject {
     
     func didLoadView()
     func didLoadData(_ viewModel: DebitsModel.ViewModel)
-    func didDeleted()
+    func didDeleted(_ viewModel: DebitsModel.ViewModel)
 }

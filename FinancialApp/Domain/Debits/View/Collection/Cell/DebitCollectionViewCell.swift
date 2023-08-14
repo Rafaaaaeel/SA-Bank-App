@@ -1,8 +1,16 @@
 import UIKit
 
+protocol DebitCollectionViewCellDelegate: AnyObject {
+    
+    func didEndAnimation(at index: Int)
+    
+}
+
 final class DebitCollectionViewCell: UICollectionViewCell {
     
     static var identifier = "DebitCollectionViewCell"
+    
+    weak var delegate: DebitCollectionViewCellDelegate?
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -66,7 +74,21 @@ extension DebitCollectionViewCell: CodableViews {
         
         NSLayoutConstraint.activeAll(titleLabelConstraint, valueLabelConstraint)
     }
-
+    
+    func deleteAnimation(at index: Int) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.4) {
+                self.transform = CGAffineTransform.identity
+            } completion: { _ in
+                UIView.animate(withDuration: 0.4, delay: 0.6) {
+                    self.alpha = 0
+                    self.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+                } completion: { _ in
+                    self.delegate?.didEndAnimation(at: index)
+                }
+            }
+        }
+    }
 }
 
 extension DebitCollectionViewCell {

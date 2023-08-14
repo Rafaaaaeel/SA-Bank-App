@@ -14,20 +14,28 @@ public class APIClient: APIClientProtocol {
     private init() { }
     
     public func request<T: Decodable, Request: RequestProtocol>(request: Request) async throws -> T {
-        guard let url = URL(string: baseURL + request.url) else {
-            throw RequestError.invalidEndpoint
+        do {
+            guard let url = URL(string: baseURL + request.url + (request.id ?? "")) else {
+                throw RequestError.invalidEndpoint
+            }
+
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = request.method.rawValue
+            
+            let (data, response) = try await session.data(for: urlRequest)
+            
+            guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+                throw RequestError.invalidResponse
+            }
+            
+            return try self.jsonDecoder.decode(T.self, from: data)
+            
+        } catch _ {
+            
+            throw RequestError.serializationError
+            
         }
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = request.method.rawValue
-        print(urlRequest.url?.absoluteString)
-        let (data, response) = try await session.data(for: urlRequest)
-        
-        guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
-            throw RequestError.invalidResponse
-        }
-        
-        return try self.jsonDecoder.decode(T.self, from: data)
     }
     
 }

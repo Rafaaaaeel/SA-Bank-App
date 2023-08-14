@@ -10,8 +10,8 @@ final class DebitsPresenter: DebitsPresenterOutput {
         
     }
     
-    func deleteDebitSucceded() {
-        view?.didDeleted()
+    func deleteDebitSucceded(_ viewModel: DebitsModel.ViewModel) {
+        view?.didDeleted(viewModel)
     }
     
     

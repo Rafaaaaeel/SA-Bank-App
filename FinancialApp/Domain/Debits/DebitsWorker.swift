@@ -24,9 +24,9 @@ final class DebitsWorker: DebitsWorkerProtocol {
     func removeDebit(_ id: String) {
         Task {
             do {
-                var request = DebitsModel.Request(method: .delete, endpoint: "deleteAll")
-                let response: Test = try await apiClient.request(request: request)
-                print(response.message)
+                let request = DebitsModel.Request(method: .delete, id: id, endpoint: "delete")
+                let response: DebitsModel.Response = try await apiClient.request(request: request)
+                output?.deleteDebitSucced(response: response)
             } catch let error {
                 print(error)
             }

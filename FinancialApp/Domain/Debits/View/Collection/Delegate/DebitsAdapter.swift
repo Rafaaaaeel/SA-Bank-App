@@ -39,18 +39,31 @@ extension DebitsAdapter: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
         guard let indexPath = indexPaths.first else { return UIContextMenuConfiguration() }
-        
-        let menu = configureContextMenu(at: indexPath.item)
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return UIContextMenuConfiguration() }
+
+        let menu = configureContextMenu(cell, at: indexPath.item)
         
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ in menu })
     }
     
-    private func configureContextMenu(at index: Int) -> UIMenu {
+    private func configureContextMenu(_ cell: UICollectionViewCell, at index: Int) -> UIMenu {
         let deleteAction = UIAction(title: "Remover", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
-            self.delegate?.didTouchDelete(at: index)
+            if let debitsCell = cell as? DebitCollectionViewCell {
+                debitsCell.delegate = self
+                debitsCell.deleteAnimation(at: index)
+            }
         }
         
         return UIMenu(options: .displayInline, children: [deleteAction])
     }
+    
+}
+
+extension DebitsAdapter: DebitCollectionViewCellDelegate {
+    
+    func didEndAnimation(at index: Int) {
+        delegate?.didTouchDelete(at: index)
+    }
+    
     
 }

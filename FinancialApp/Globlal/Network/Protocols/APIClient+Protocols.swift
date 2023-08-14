@@ -18,6 +18,7 @@ public enum HTTPMethods: String {
 
 public protocol RequestProtocol {
     
+    var id: String? { get }
     var url: String { get }
     var method: HTTPMethods { get }
     var endpoint: String { get }

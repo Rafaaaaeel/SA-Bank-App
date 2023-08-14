@@ -31,8 +31,9 @@ extension DebitsInteractor: DebitWokerOutputProtocol {
         presenter?.failedView()
     }
     
-    func deleteDebitSucced() {
-        presenter?.deleteDebitSucceded()
+    func deleteDebitSucced(response: DebitsModel.Response) {
+        let viewModel = DebitsModel.ViewModel(data: response.data)
+        presenter?.deleteDebitSucceded(viewModel)
     }
     
 }

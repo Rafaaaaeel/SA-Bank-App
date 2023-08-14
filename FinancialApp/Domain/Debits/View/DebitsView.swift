@@ -104,6 +104,7 @@ extension DebitsView: DebitsCollectionViewDelegate {
     }
     
     func didScroll(_ scrollView: UIScrollView) {
+        guard let model, model.cout > 6 else { return }
         let y = scrollView.contentOffset.y
         let mod = y.truncatingRemainder(dividingBy: scrollView.bounds.size.height )
         let difference = abs((2 * mod / (scrollView.bounds.size.height - 310)) - 1)

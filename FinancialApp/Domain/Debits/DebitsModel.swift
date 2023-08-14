@@ -8,11 +8,14 @@ struct DebitsModel {
         
         var method: HTTPMethods = .get
         
+        var id: String?
+        
         var endpoint: String = "debits"
         
         var endpoints: [String : String] = [
+            
             "debits": "debits",
-            "delete": "debits",
+            "delete": "debits/",
             "deleteAll": "debits/all"
         ]
         

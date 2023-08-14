@@ -26,8 +26,8 @@ final class DebitsViewController: CommonViewController, DebitsViewControllerProt
         debitsView.model = viewModel
     }
 
-    func didDeleted() {
-//        debitsView.model = viewModel
+    func didDeleted(_ viewModel: DebitsModel.ViewModel) {
+        debitsView.model = viewModel
     }
 }
 
