@@ -87,6 +87,13 @@ extension DebitCollectionViewCell {
         }
         super.touchesBegan(touches, with: event)
     }
+    
+    public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIView.animate(withDuration: 0.2) {
+            self.transform = CGAffineTransform.identity
+        }
+        super.touchesCancelled(touches, with: event)
+    }
 
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIView.animate(withDuration: 0.2) {

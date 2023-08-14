@@ -4,6 +4,11 @@ final class DebitsDataSource: NSObject, UICollectionViewDataSource {
     
     var model: DebitsModel.ViewModel?
     
+    func debit(at index: Int) -> Debit? {
+        guard let model else { return nil }
+        return model.data[index]
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return model?.cout ?? 0
     }

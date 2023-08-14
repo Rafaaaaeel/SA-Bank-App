@@ -1,15 +1,26 @@
 import Foundation
 
-
 typealias Debits = DebitsModel.Response
 
 struct DebitsModel {
     
     struct Request: RequestProtocol  {
         
+        var method: HTTPMethods = .get
+        
         var endpoint: String = "debits"
+        
+        var endpoints: [String : String] = [
+            "debits": "debits",
+            "delete": "debits",
+            "deleteAll": "debits/all"
+        ]
+        
         var params: [String : String]?
     
+        var url: String {
+            return "/" + (endpoints[endpoint] ?? "")
+        }
     }
     
     struct Response: Codable {
@@ -25,4 +36,8 @@ struct DebitsModel {
         
     }
     
+}
+
+struct Test: Codable {
+    let message: String
 }

@@ -14,7 +14,7 @@ final class DebitsViewController: CommonViewController, DebitsViewControllerProt
     
     override func loadView() {
         super.loadView()
-        debitsView.animationDelegate = self
+        debitsView.delegate = self
         view = debitsView
     }
     
@@ -26,9 +26,24 @@ final class DebitsViewController: CommonViewController, DebitsViewControllerProt
         debitsView.model = viewModel
     }
 
+    func didDeleted() {
+//        debitsView.model = viewModel
+    }
 }
 
-extension DebitsViewController: DebitsViewAnimationDelegate {
+extension DebitsViewController: DebitsViewDelegate {
+    
+    func didTouchDebit(_ id: String) {
+        router?.didTouchDebit(id)
+    }
+    
+    func didTouchCreate() {
+        router?.didTouchCreate()
+    }
+    
+    func didTouchDelete(_ id: String) {
+        interactor?.removeDebit(id)
+    }
     
     func didEndAnimation() {
 //        toggleTabbar()

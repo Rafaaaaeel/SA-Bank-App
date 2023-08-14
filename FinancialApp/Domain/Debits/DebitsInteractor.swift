@@ -8,12 +8,14 @@ final class DebitsInteractor: DebitsInteractorOutput {
 }
 
 extension DebitsInteractor: DebitsInteractorInput {
+
     func getDebits() {
         worker?.getDebits()
     }
     
-    
-    func didTouchDebit() {}
+    func removeDebit(_ id: String) {
+        worker?.removeDebit(id)
+    }
     
 }
 
@@ -29,5 +31,8 @@ extension DebitsInteractor: DebitWokerOutputProtocol {
         presenter?.failedView()
     }
     
+    func deleteDebitSucced() {
+        presenter?.deleteDebitSucceded()
+    }
     
 }

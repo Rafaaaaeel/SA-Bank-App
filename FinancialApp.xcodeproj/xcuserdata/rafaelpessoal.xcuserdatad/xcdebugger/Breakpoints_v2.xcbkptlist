@@ -30,10 +30,135 @@
             filePath = "FinancialApp/Domain/Debits/View/DebitsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "didStartEdditing()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F73BDD1F-8963-4E17-8495-113E4DC5B894 - 9879b7367fac140f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinancialApp.DebitsView.didStartEdditing() -&gt; ()"
+                  moduleName = "FinancialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpessoal/Developer/iOS/FinancialApp/FinancialApp/Domain/Debits/View/DebitsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "F73BDD1F-8963-4E17-8495-113E4DC5B894 - 9879b7367fac1a1f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinancialApp.DebitsView.didStartEdditing() -&gt; ()"
+                  moduleName = "FinancialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpessoal/Developer/iOS/FinancialApp/FinancialApp/Domain/Debits/View/DebitsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A12CBBD0-5F50-4A24-8CE2-86703E84ACDF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinancialApp/Domain/Debits/DebitsWorker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "removeDebit(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A12CBBD0-5F50-4A24-8CE2-86703E84ACDF - 355a2525153f40c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in FinancialApp.DebitsWorker.removeDebit(Swift.String) -&gt; ()"
+                  moduleName = "FinancialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpessoal/Developer/iOS/FinancialApp/FinancialApp/Domain/Debits/DebitsWorker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  uuid = "A12CBBD0-5F50-4A24-8CE2-86703E84ACDF - 6b880499194030cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in FinancialApp.DebitsWorker.removeDebit(Swift.String) -&gt; ()"
+                  moduleName = "FinancialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpessoal/Developer/iOS/FinancialApp/FinancialApp/Domain/Debits/DebitsWorker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "A12CBBD0-5F50-4A24-8CE2-86703E84ACDF - c6e144a7961c02c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in FinancialApp.DebitsWorker.removeDebit(Swift.String) -&gt; ()"
+                  moduleName = "FinancialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpessoal/Developer/iOS/FinancialApp/FinancialApp/Domain/Debits/DebitsWorker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "A12CBBD0-5F50-4A24-8CE2-86703E84ACDF - 9f42d4e6d7eb6dc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in FinancialApp.DebitsWorker.removeDebit(Swift.String) -&gt; ()"
+                  moduleName = "FinancialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpessoal/Developer/iOS/FinancialApp/FinancialApp/Domain/Debits/DebitsWorker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "A12CBBD0-5F50-4A24-8CE2-86703E84ACDF - c6e144a7961c02c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in FinancialApp.DebitsWorker.removeDebit(Swift.String) -&gt; ()"
+                  moduleName = "FinancialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpessoal/Developer/iOS/FinancialApp/FinancialApp/Domain/Debits/DebitsWorker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

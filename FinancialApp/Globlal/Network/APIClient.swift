@@ -1,33 +1,27 @@
 import Foundation
 
-class APIClient: APIClientProtocol {
+
+
+public class APIClient: APIClientProtocol {
 
     static public let shared = APIClient()
     
-    private let baseURL = "https://debits-service-bff.onrender.com/"
+    private let session = URLSession.shared
+    private let baseURL = "https://debits-service-bff.onrender.com"
     private let urlSession = URLSession.shared
     private let jsonDecoder = Decoder().decoder
 
     private init() { }
     
-    public func requestData<T: Decodable, Request: RequestProtocol>(request: Request) async throws -> T {
-        guard let url = URL(string: baseURL + request.endpoint), var urlComponents = URLComponents(url: url , resolvingAgainstBaseURL: false) else {
+    public func request<T: Decodable, Request: RequestProtocol>(request: Request) async throws -> T {
+        guard let url = URL(string: baseURL + request.url) else {
             throw RequestError.invalidEndpoint
         }
         
-        var queryItems = [URLQueryItem(name: "api_key", value: nil)]
-        
-        if let params = request.params {
-            queryItems.append(contentsOf: params.map { URLQueryItem(name: $0.key, value: $0.value) })
-        }
-        
-        urlComponents.queryItems = queryItems
-        
-        guard let finalURL = urlComponents.url else {
-            throw RequestError.invalidEndpoint
-        }
-        
-        let (data, response) = try await urlSession.data(from: finalURL)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = request.method.rawValue
+        print(urlRequest.url?.absoluteString)
+        let (data, response) = try await session.data(for: urlRequest)
         
         guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
             throw RequestError.invalidResponse
@@ -35,6 +29,5 @@ class APIClient: APIClientProtocol {
         
         return try self.jsonDecoder.decode(T.self, from: data)
     }
-    
     
 }

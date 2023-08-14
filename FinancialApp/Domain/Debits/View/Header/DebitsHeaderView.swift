@@ -54,13 +54,17 @@ final class DebitsHeaderView: UIView {
     }
     
     func animation() {
+        guard searchTextFieldConstraint.constant == 0 else { return }
+        self.searchTextField.animatePlaceholder()
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.4) {
                 self.searchTextFieldConstraint.constant = -80
-                self.searchTextField.commonPlaceholder = "Hope you find it"//Text.Debits.searchPlaceholder
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    self.searchTextField.commonPlaceholder = "Hope you find it"//Text.Debits.searchPlaceholder
+                }
                 self.layoutIfNeeded()
             } completion: { _ in
-                UIView.animate(withDuration: 0.4, delay: 0.1) {
+                UIView.animate(withDuration: 0.4) {
                     self.createButtonConstraint.constant = 90
                     self.layoutIfNeeded()
                 }
@@ -69,6 +73,8 @@ final class DebitsHeaderView: UIView {
     }
     
     func reset() {
+        guard searchTextFieldConstraint.constant == -80 else { return }
+        self.searchTextField.animatePlaceholder()
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.4) {
                 self.createButtonConstraint.constant = 0

@@ -2,8 +2,9 @@ import UIKit
 
 protocol DebitsCollectionViewDelegate: AnyObject {
     
-    func didTouchItem(at index: Int)
+    func didTouch(_ debit: Debit)
     func didScroll(_ scrollView: UIScrollView)
+    func didTouchDelete(_ debit: Debit)
     
 }
 
@@ -19,6 +20,10 @@ final class DebitsCollectionView: UICollectionView {
         self.collectionDelegate = delegate
         super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         configure()
+    }
+    
+    func debit(at index: Int) -> Debit? {
+        return source.debit(at: index)
     }
     
     func append(_ model: DebitsModel.ViewModel?) {
@@ -57,8 +62,14 @@ extension DebitsCollectionView {
 
 extension DebitsCollectionView: DebitsAdapterDelegate {
     
+    func didTouchDelete(at index: Int) {
+        guard let debit = debit(at: index) else { return }
+        collectionDelegate?.didTouchDelete(debit)
+    }
+    
     func didTouchItem(at index: Int) {
-        collectionDelegate?.didTouchItem(at: index)
+        guard let debit = debit(at: index) else { return }
+        collectionDelegate?.didTouch(debit)
     }
     
     func didScroll(_ scrollView: UIScrollView) {

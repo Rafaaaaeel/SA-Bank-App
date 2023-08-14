@@ -1,5 +1,7 @@
+import Foundation
+
 final class DebitsWorker: DebitsWorkerProtocol {
-    
+
     var apiClient: APIClientProtocol
     var output: DebitWokerOutputProtocol?
     
@@ -10,9 +12,21 @@ final class DebitsWorker: DebitsWorkerProtocol {
     func getDebits() {
         Task {
             do {
-                let request = DebitsModel.Request(endpoint: "debits")
-                let response: DebitsModel.Response = try await apiClient.requestData(request: request)
+                let request = DebitsModel.Request()
+                let response: DebitsModel.Response = try await apiClient.request(request: request)
                 output?.getDebitSucceded(response: response)
+            } catch let error {
+                print(error)
+            }
+        }
+    }
+    
+    func removeDebit(_ id: String) {
+        Task {
+            do {
+                var request = DebitsModel.Request(method: .delete, endpoint: "deleteAll")
+                let response: Test = try await apiClient.request(request: request)
+                print(response.message)
             } catch let error {
                 print(error)
             }

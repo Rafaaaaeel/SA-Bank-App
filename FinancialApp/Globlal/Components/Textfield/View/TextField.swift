@@ -83,7 +83,15 @@ final class CommonTextField: UIView {
         return nil
     }
     
-
+    func animatePlaceholder() {
+        UIView.animate(withDuration: 0.2) {
+            self.placeholderLabel.alpha = 0
+        } completion: { _ in
+            UIView.animate(withDuration: 0.2, delay: 0.2) {
+                self.placeholderLabel.alpha = 1
+            }
+        }
+    }
 }
 
 // MARK: - Private Methods

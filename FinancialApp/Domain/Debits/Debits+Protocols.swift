@@ -6,12 +6,14 @@ protocol DebitsPresenterOutput: AnyObject {
     
     func succededView(_ viewModel: DebitsModel.ViewModel)
     func failedView()
+    
+    func deleteDebitSucceded()
 }
 
 // ViewController -> Interactor
 protocol DebitsInteractorInput: AnyObject {
     func getDebits()
-    func didTouchDebit()
+    func removeDebit(_ id: String)
 }
 
 // Interactor -> Presenter
@@ -22,7 +24,8 @@ protocol DebitsInteractorOutput: AnyObject {
 
 // ViewController -> Router
 protocol DebitsRouterProtocol: AnyObject {
-    func didTouchDebit()
+    func didTouchDebit(_ id: String)
+    func didTouchCreate()
 }
 
 // Interactor -> Worker
@@ -33,11 +36,14 @@ protocol DebitsWorkerProtocol: DebitWokerInputProtocol, AnyObject {
 
 protocol DebitWokerInputProtocol: AnyObject {
     func getDebits()
+    func removeDebit(_ id: String)
 }
 
 protocol DebitWokerOutputProtocol: AnyObject {
     func getDebitSucceded(response: DebitsModel.Response)
     func getDebitFailed(error: Error)
+    
+    func deleteDebitSucced()
 }
 
 // ViewController
@@ -47,4 +53,5 @@ protocol DebitsViewControllerProtocol: AnyObject {
     
     func didLoadView()
     func didLoadData(_ viewModel: DebitsModel.ViewModel)
+    func didDeleted()
 }

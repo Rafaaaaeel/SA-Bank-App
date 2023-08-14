@@ -2,8 +2,13 @@ import UIKit
  
 typealias Model = DebitsModel.ViewModel
 
-protocol DebitsViewAnimationDelegate: AnyObject {
+protocol DebitsViewDelegate: AnyObject {
+    
+    func didTouchDebit(_ id: String)
+    func didTouchCreate()
+    func didTouchDelete(_ id: String)
     func didEndAnimation()
+    
 }
 
 final class DebitsView: UIView {
@@ -20,7 +25,7 @@ final class DebitsView: UIView {
         }
     }
     
-    weak var animationDelegate: DebitsViewAnimationDelegate?
+    weak var delegate: DebitsViewDelegate?
 
     lazy var animationView: UIView = {
         let view = UIView(frame: CGRect(x: 168, y: 400, width: 60, height: 60))
@@ -90,8 +95,12 @@ extension DebitsView: CodableViews {
 
 extension DebitsView: DebitsCollectionViewDelegate {
     
-    func didTouchItem(at index: Int) {
-        print(index)
+    func didTouchDelete(_ debit: Debit) {
+        delegate?.didTouchDelete(debit._id)
+    }
+    
+    func didTouch(_ debit: Debit) {
+        delegate?.didTouchDebit(debit._id)
     }
     
     func didScroll(_ scrollView: UIScrollView) {
@@ -117,7 +126,7 @@ extension DebitsView: DebitsCollectionViewDelegate {
 extension DebitsView: DebitsHeaderViewDelegate {
     
     func didTouchCreate() {
-        print("Create")
+        delegate?.didTouchCreate()
     }
     
     func didStartEdditing() {
