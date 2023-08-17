@@ -29,6 +29,10 @@ final class DebitsViewController: CommonViewController, DebitsViewControllerProt
     func didDeleted(_ viewModel: DebitsModel.ViewModel) {
         debitsView.model = viewModel
     }
+    
+    func didLoadFailed() {
+        debitsView.status = .failed
+    }
 }
 
 extension DebitsViewController: DebitsViewDelegate {
@@ -48,6 +52,10 @@ extension DebitsViewController: DebitsViewDelegate {
     func didEndAnimation() {
 //        toggleTabbar()
         updateUI()
+    }
+    
+    func didTouchRetry() {
+        interactor?.getDebits()
     }
     
 }

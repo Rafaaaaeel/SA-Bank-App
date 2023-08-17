@@ -1,8 +1,12 @@
-//
-//  CreatorWorker.swift
-//  FinancialApp
-//
-//  Created by Rafael pessoal on 13/08/23.
-//
+import UIKit
 
-import Foundation
+final class CreatorWorker: CreatorWorkerProtocol {
+    
+    var apiClient: APIClientProtocol
+    var output: CreatorWokerOutputProtocol?
+    
+    init(apiClient: APIClientProtocol = APIClient.shared) {
+        self.apiClient = apiClient
+    }
+    
+}

@@ -10,6 +10,7 @@ class CommonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configBackButton()
+        view.backgroundColor = .primaryBackground
     }
     
     private func configBackButton() {

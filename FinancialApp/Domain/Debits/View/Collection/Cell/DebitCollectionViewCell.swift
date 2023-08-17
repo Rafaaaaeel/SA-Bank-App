@@ -89,6 +89,12 @@ extension DebitCollectionViewCell: CodableViews {
             }
         }
     }
+    
+    func resetAnimation(at index: Int) {
+        UIView.animate(withDuration: 0.4) {
+            self.transform = CGAffineTransform.identity
+        }
+    }
 }
 
 extension DebitCollectionViewCell {

@@ -49,7 +49,7 @@ final class DebitsCollectionView: UICollectionView {
 extension DebitsCollectionView {
     
     private func configure() {
-        adapter.delegate = self 
+        adapter.delegate = self
         showsVerticalScrollIndicator = false
         dataSource = source
         delegate = adapter

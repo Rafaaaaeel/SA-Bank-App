@@ -7,21 +7,22 @@ protocol DebitsViewDelegate: AnyObject {
     func didTouchDebit(_ id: String)
     func didTouchCreate()
     func didTouchDelete(_ id: String)
+    func didTouchRetry()
     func didEndAnimation()
     
 }
 
-final class DebitsView: UIView {
+final class DebitsView: CommonView {
     
     var model: Model? {
         didSet {
-            updateUI()
+            self.status = .done
         }
     }
     
     lazy var width: CGFloat = 0 {
         didSet {
-            updateUI()
+            self.status = .done
         }
     }
     
@@ -34,6 +35,24 @@ final class DebitsView: UIView {
         view.layer.cornerRadius = 30
         view.transform = CGAffineTransform(scaleX: 600, y: 600)
         return view
+    }()
+    
+    lazy var retryButton: CommonWhiteButton = {
+        let button = CommonWhiteButton()
+        button.tintColor = .primaryBackground
+        button.title = "Retry"
+        button.isHidden = true
+        button.addTarget(self, action: #selector(didTouchTry), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var errorImageView: UIImageView = {
+        let image = UIImage(named: "error")
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isHidden = true
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     private var animationHeightAnchor: NSLayoutConstraint = NSLayoutConstraint()
@@ -51,11 +70,25 @@ final class DebitsView: UIView {
     required init?(coder: NSCoder) {
         return nil
     }
-    
-    func updateUI() {
+        
+    override func loadSucces() {
         collectionView.append(model)
         collectionView.set(width: width)
         collectionView.reload()
+    }
+    
+    override func loadError() {
+        headerView.status = .failed
+        DispatchQueue.main.async {
+            self.retryButton.isHidden = false
+            self.errorImageView.isHidden = false
+        }
+    }
+    
+    @objc private func didTouchTry() {
+        retryButton.increment()
+        guard retryButton.tapCounter <= 2 else { return }
+        delegate?.didTouchRetry()
     }
     
 }
@@ -68,7 +101,7 @@ extension DebitsView: CodableViews {
     }
     
     func setupHiearchy() {
-        addSubviews(headerView, collectionView, animationView)
+        addSubviews(headerView, collectionView, animationView, errorImageView, retryButton)
     }
     
     func setupContraints() {
@@ -88,7 +121,20 @@ extension DebitsView: CodableViews {
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ]
         
-        NSLayoutConstraint.activeAll(headerViewConstraints, collectionConstraints)
+        let retryButtonConstraints = [
+            retryButton.widthAnchor.constraint(equalToConstant: 150),
+            retryButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -24),
+            retryButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ]
+        
+        let errorImageViewConstraints = [
+            errorImageView.heightAnchor.constraint(equalToConstant: 400),
+            errorImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            errorImageView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ]
+        
+        
+        NSLayoutConstraint.activeAll(headerViewConstraints, collectionConstraints, retryButtonConstraints, errorImageViewConstraints)
     }
 
 }
@@ -125,6 +171,7 @@ extension DebitsView: DebitsCollectionViewDelegate {
 }
 
 extension DebitsView: DebitsHeaderViewDelegate {
+
     
     func didTouchCreate() {
         delegate?.didTouchCreate()

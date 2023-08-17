@@ -1,8 +1,5 @@
-//
-//  CreatorRouter.swift
-//  FinancialApp
-//
-//  Created by Rafael pessoal on 13/08/23.
-//
+import UIKit
 
-import Foundation
+final class CreatorRouter: AppRouter, CreatorRouterProtocol {
+    
+}

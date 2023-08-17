@@ -2,6 +2,11 @@ import UIKit
 
 class CommonWhiteButton: UIButton {
     
+    public var tapCounter = 0 {
+        didSet {
+            hideButton()
+        }
+    }
     public var height: CGFloat = 60
     public var isPressAnimationActive = true
     
@@ -41,6 +46,14 @@ class CommonWhiteButton: UIButton {
         ]
         
         NSLayoutConstraint.activate(constraint)
+    }
+    
+    func increment() {
+        tapCounter += 1
+    }
+    
+    private func hideButton() {
+        isHidden = tapCounter == 3
     }
     
     func hideTitle() {

@@ -16,7 +16,7 @@ final class DebitsWorker: DebitsWorkerProtocol {
                 let response: DebitsModel.Response = try await apiClient.request(request: request)
                 output?.getDebitSucceded(response: response)
             } catch let error {
-                print(error)
+                output?.getDebitFailed(error: error)
             }
         }
     }

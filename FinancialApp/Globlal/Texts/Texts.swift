@@ -26,6 +26,7 @@ struct Text {
     struct Debits {
         static let headerTitle = "Hey, \nhere they are! "
         static let searchPlaceholder = "Looking for an specific one"
+        static let headerTitleFailure = "Sorry, \nsomething went wrong"
     }
 
 }

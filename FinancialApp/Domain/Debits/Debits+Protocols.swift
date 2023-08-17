@@ -53,5 +53,6 @@ protocol DebitsViewControllerProtocol: AnyObject {
     
     func didLoadView()
     func didLoadData(_ viewModel: DebitsModel.ViewModel)
+    func didLoadFailed()
     func didDeleted(_ viewModel: DebitsModel.ViewModel)
 }

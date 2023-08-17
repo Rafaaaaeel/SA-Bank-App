@@ -1,8 +1,16 @@
-//
-//  CreatorInterector.swift
-//  FinancialApp
-//
-//  Created by Rafael pessoal on 13/08/23.
-//
+import UIKit
 
-import Foundation
+final class CreatorInterector: CreatorInteractorOutput {
+    var presenter: CreatorPresenterOutput?
+    
+    var worker: CreatorWorkerProtocol?
+}
+
+extension CreatorInterector: CreatorInteractorInput  {
+
+    
+}
+
+extension CreatorInterector: CreatorWokerOutputProtocol {
+    
+}

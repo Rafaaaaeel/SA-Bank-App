@@ -7,7 +7,7 @@ final class DebitsPresenter: DebitsPresenterOutput {
     }
     
     func failedView() {
-        
+        view?.didLoadFailed()
     }
     
     func deleteDebitSucceded(_ viewModel: DebitsModel.ViewModel) {

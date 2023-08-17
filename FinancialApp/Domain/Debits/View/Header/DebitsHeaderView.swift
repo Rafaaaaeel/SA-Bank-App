@@ -9,7 +9,7 @@ protocol DebitsHeaderViewDelegate: AnyObject {
     
 }
 
-final class DebitsHeaderView: UIView {
+final class DebitsHeaderView: CommonView  {
 
     weak var delegate: DebitsHeaderViewDelegate?
     
@@ -32,7 +32,6 @@ final class DebitsHeaderView: UIView {
     
     lazy var createButton: CommonWhiteButton = {
         let button = CommonWhiteButton()
-        button.isPressAnimationActive = true
         let image = UIImage(systemName: SFImages.Debits.create, withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         button.tintColor = .primaryBackground
         button.setImage(image, for: [])
@@ -53,41 +52,14 @@ final class DebitsHeaderView: UIView {
         delegate?.didTouchCreate()
     }
     
-    func animation() {
-        guard searchTextFieldConstraint.constant == 0 else { return }
-        self.searchTextField.animatePlaceholder()
+    override func loadError() {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.4) {
-                self.searchTextFieldConstraint.constant = -80
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    self.searchTextField.commonPlaceholder = "Hope you find it"//Text.Debits.searchPlaceholder
-                }
-                self.layoutIfNeeded()
-            } completion: { _ in
-                UIView.animate(withDuration: 0.4) {
-                    self.createButtonConstraint.constant = 90
-                    self.layoutIfNeeded()
-                }
-            }
+            self.createButton.isHidden = true
+            self.searchTextField.isHidden = true
+            self.titleLabel.text = Text.Debits.headerTitleFailure
         }
     }
     
-    func reset() {
-        guard searchTextFieldConstraint.constant == -80 else { return }
-        self.searchTextField.animatePlaceholder()
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.4) {
-                self.createButtonConstraint.constant = 0
-                self.layoutIfNeeded()
-            } completion: { _ in
-                UIView.animate(withDuration: 0.4, delay: 0.1) {
-                    self.searchTextField.commonPlaceholder = Text.Debits.searchPlaceholder
-                    self.searchTextFieldConstraint.constant = 0
-                    self.layoutIfNeeded()
-                }
-            }
-        }
-    }
 }
 
 
@@ -146,6 +118,47 @@ extension DebitsHeaderView: CommonTextFieldDelegate {
     
     func didChangedText() {
         delegate?.didChangedText()
+    }
+    
+}
+
+// MARK: - Animation
+extension DebitsHeaderView {
+    
+    func animation() {
+        guard searchTextFieldConstraint.constant == 0 else { return }
+        self.searchTextField.animatePlaceholder()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.4) {
+                self.searchTextFieldConstraint.constant = -80
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    self.searchTextField.commonPlaceholder = "Hope you find it"//Text.Debits.searchPlaceholder
+                }
+                self.layoutIfNeeded()
+            } completion: { _ in
+                UIView.animate(withDuration: 0.4) {
+                    self.createButtonConstraint.constant = 90
+                    self.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    func reset() {
+        guard searchTextFieldConstraint.constant == -80 else { return }
+        self.searchTextField.animatePlaceholder()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.4) {
+                self.createButtonConstraint.constant = 0
+                self.layoutIfNeeded()
+            } completion: { _ in
+                UIView.animate(withDuration: 0.4, delay: 0.1) {
+                    self.searchTextField.commonPlaceholder = Text.Debits.searchPlaceholder
+                    self.searchTextFieldConstraint.constant = 0
+                    self.layoutIfNeeded()
+                }
+            }
+        }
     }
     
 }

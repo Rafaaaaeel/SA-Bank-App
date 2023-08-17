@@ -14,8 +14,6 @@ final class DebitsAdapter: NSObject, UICollectionViewDelegate {
     var width: Double = 0
     var spacing: CGFloat = 30
     
-    override init() { }
-    
 }
 
 extension DebitsAdapter: UICollectionViewDelegateFlowLayout {

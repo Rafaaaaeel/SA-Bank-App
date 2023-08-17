@@ -38,7 +38,7 @@
 		68145C8B2A88E41D0047CED7 /* Double + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68145C8A2A88E41D0047CED7 /* Double + String.swift */; };
 		68145C8E2A88F56D0047CED7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68145C8D2A88F56D0047CED7 /* String.swift */; };
 		68145C912A88FAD10047CED7 /* Creator+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68145C902A88FAD10047CED7 /* Creator+Protocols.swift */; };
-		68145C932A88FAE00047CED7 /* CreatoConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68145C922A88FAE00047CED7 /* CreatoConfigurator.swift */; };
+		68145C932A88FAE00047CED7 /* CreatorConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68145C922A88FAE00047CED7 /* CreatorConfigurator.swift */; };
 		68145C952A88FAF30047CED7 /* CreatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68145C942A88FAF30047CED7 /* CreatorModel.swift */; };
 		68145C972A88FB000047CED7 /* CreatorInterector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68145C962A88FB000047CED7 /* CreatorInterector.swift */; };
 		68145C992A88FB0C0047CED7 /* CreatorWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68145C982A88FB0C0047CED7 /* CreatorWorker.swift */; };
@@ -83,7 +83,9 @@
 		68BA18312A6BAE4A007C40EE /* CommonTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BA18302A6BAE4A007C40EE /* CommonTextLabel.swift */; };
 		68BA18352A6BBBE1007C40EE /* CommonTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BA18342A6BBBE1007C40EE /* CommonTextButton.swift */; };
 		68BF4C502A6F251F00E94B3A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF4C4F2A6F251F00E94B3A /* UIStackView.swift */; };
+		68D1C1AB2A8B820D00011E0D /* CommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D1C1AA2A8B820D00011E0D /* CommonView.swift */; };
 		68E25F3E2A77BD42006D3A93 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E25F3D2A77BD42006D3A93 /* Decoder.swift */; };
+		68F050A72A8C29F3009AB218 /* Optionals+DebitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F050A62A8C29F3009AB218 /* Optionals+DebitsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,7 +120,7 @@
 		68145C8A2A88E41D0047CED7 /* Double + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + String.swift"; sourceTree = "<group>"; };
 		68145C8D2A88F56D0047CED7 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		68145C902A88FAD10047CED7 /* Creator+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Creator+Protocols.swift"; sourceTree = "<group>"; };
-		68145C922A88FAE00047CED7 /* CreatoConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatoConfigurator.swift; sourceTree = "<group>"; };
+		68145C922A88FAE00047CED7 /* CreatorConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorConfigurator.swift; sourceTree = "<group>"; };
 		68145C942A88FAF30047CED7 /* CreatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorModel.swift; sourceTree = "<group>"; };
 		68145C962A88FB000047CED7 /* CreatorInterector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorInterector.swift; sourceTree = "<group>"; };
 		68145C982A88FB0C0047CED7 /* CreatorWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorWorker.swift; sourceTree = "<group>"; };
@@ -165,7 +167,9 @@
 		68BA18302A6BAE4A007C40EE /* CommonTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextLabel.swift; sourceTree = "<group>"; };
 		68BA18342A6BBBE1007C40EE /* CommonTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextButton.swift; sourceTree = "<group>"; };
 		68BF4C4F2A6F251F00E94B3A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		68D1C1AA2A8B820D00011E0D /* CommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonView.swift; sourceTree = "<group>"; };
 		68E25F3D2A77BD42006D3A93 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		68F050A62A8C29F3009AB218 /* Optionals+DebitsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optionals+DebitsModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +235,7 @@
 		680C58D32A65C57F002FCEBB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				68D1C1A92A8B820200011E0D /* View */,
 				686FF4772A70D9A200E660FC /* ViewController */,
 				6824B5082A69E55800D6A12D /* Labels */,
 				68BA18322A6BBB76007C40EE /* Buttons */,
@@ -314,7 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				68145C902A88FAD10047CED7 /* Creator+Protocols.swift */,
-				68145C922A88FAE00047CED7 /* CreatoConfigurator.swift */,
+				68145C922A88FAE00047CED7 /* CreatorConfigurator.swift */,
 				68145C942A88FAF30047CED7 /* CreatorModel.swift */,
 				68145C962A88FB000047CED7 /* CreatorInterector.swift */,
 				68145C982A88FB0C0047CED7 /* CreatorWorker.swift */,
@@ -544,6 +549,7 @@
 				6813FC362A70CDA400BFD7FE /* DebitsViewController.swift */,
 				68281E9E2A7BB35200D9C5BF /* Network */,
 				6813FC382A70CDA700BFD7FE /* View */,
+				68F050A52A8C29D1009AB218 /* Utils */,
 			);
 			path = Debits;
 			sourceTree = "<group>";
@@ -696,12 +702,28 @@
 			path = UIStackView;
 			sourceTree = "<group>";
 		};
+		68D1C1A92A8B820200011E0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				68D1C1AA2A8B820D00011E0D /* CommonView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		68E25F3C2A77BD00006D3A93 /* Decoder */ = {
 			isa = PBXGroup;
 			children = (
 				68E25F3D2A77BD42006D3A93 /* Decoder.swift */,
 			);
 			path = Decoder;
+			sourceTree = "<group>";
+		};
+		68F050A52A8C29D1009AB218 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				68F050A62A8C29F3009AB218 /* Optionals+DebitsModel.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -792,10 +814,12 @@
 				6813BA8B2A60F7800091F9A9 /* CodableView.swift in Sources */,
 				68398D6A2A60C3E400C108A4 /* AppDelegate.swift in Sources */,
 				686FF4852A733E9C00E660FC /* AppConfigurator.swift in Sources */,
+				68D1C1AB2A8B820D00011E0D /* CommonView.swift in Sources */,
 				680773492A837F4400BE413D /* CGFloat+Double.swift in Sources */,
 				6813FC2F2A70CD8200BFD7FE /* DebitsInteractor.swift in Sources */,
 				680C58D52A65C59C002FCEBB /* TextField.swift in Sources */,
 				68271A012A8377EC00032C8D /* DebitsDataSource.swift in Sources */,
+				68F050A72A8C29F3009AB218 /* Optionals+DebitsModel.swift in Sources */,
 				68BF4C502A6F251F00E94B3A /* UIStackView.swift in Sources */,
 				6813BA7C2A60E0530091F9A9 /* LoginModel.swift in Sources */,
 				68145C9F2A88FB2A0047CED7 /* CreatorViewController.swift in Sources */,
@@ -831,7 +855,7 @@
 				6813BA862A60E0950091F9A9 /* LoginRouter.swift in Sources */,
 				686FF4822A732DF600E660FC /* DebitsView+Animations.swift in Sources */,
 				68281EA02A7BB36500D9C5BF /* DebitModel.swift in Sources */,
-				68145C932A88FAE00047CED7 /* CreatoConfigurator.swift in Sources */,
+				68145C932A88FAE00047CED7 /* CreatorConfigurator.swift in Sources */,
 				68BA18312A6BAE4A007C40EE /* CommonTextLabel.swift in Sources */,
 				68B0FE862A70446E00E2C7E9 /* RegisterRouter.swift in Sources */,
 				680773522A8386E500BE413D /* Secondaries.swift in Sources */,
@@ -995,6 +1019,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 56293NUR34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinancialApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1021,6 +1046,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 56293NUR34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinancialApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
