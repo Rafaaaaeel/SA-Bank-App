@@ -15,23 +15,34 @@ public class CommonView: UIView {
         }
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        render()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func render() {
-        switch self.status {
-        case .done:
-            loadSucces()
-        case .failed:
-            loadError()
-        case .loading:
-            loadLoading()
-        case .empty:
-            loadEmpty()
+        DispatchQueue.main.async {
+            switch self.status {
+            case .done:
+                self.loadSuccess()
+            case .failed:
+                self.loadError()
+            case .loading:
+                self.loadLoading()
+            case .empty:
+                self.loadEmpty()
+            }
         }
     }
     
     
     public func loadLoading() { }
     
-    public func loadSucces() { }
+    public func loadSuccess() { }
     
     public func loadError() { }
     

@@ -7,16 +7,12 @@ protocol DebitsAdapterDelegate: AnyObject {
     func didTouchDelete(at index: Int)
 }
 
-final class DebitsAdapter: NSObject, UICollectionViewDelegate {
+final class DebitsAdapter: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     weak var delegate: DebitsAdapterDelegate?
     
     var width: Double = 0
     var spacing: CGFloat = 30
-    
-}
-
-extension DebitsAdapter: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
@@ -62,6 +58,5 @@ extension DebitsAdapter: DebitCollectionViewCellDelegate {
     func didEndAnimation(at index: Int) {
         delegate?.didTouchDelete(at: index)
     }
-    
     
 }

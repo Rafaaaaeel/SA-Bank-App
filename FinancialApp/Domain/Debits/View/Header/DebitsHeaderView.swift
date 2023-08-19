@@ -52,12 +52,16 @@ final class DebitsHeaderView: CommonView  {
         delegate?.didTouchCreate()
     }
     
+    override func loadLoading() {
+        self.createButton.isHidden = true
+        self.searchTextField.isHidden = true
+        self.titleLabel.text = Text.Debits.headerTitleLoading
+    }
+    
     override func loadError() {
-        DispatchQueue.main.async {
-            self.createButton.isHidden = true
-            self.searchTextField.isHidden = true
-            self.titleLabel.text = Text.Debits.headerTitleFailure
-        }
+        self.createButton.isHidden = true
+        self.searchTextField.isHidden = true
+        self.titleLabel.text = Text.Debits.headerTitleFailure
     }
     
 }

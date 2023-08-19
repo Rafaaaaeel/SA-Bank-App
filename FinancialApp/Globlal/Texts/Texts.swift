@@ -27,6 +27,7 @@ struct Text {
         static let headerTitle = "Hey, \nhere they are! "
         static let searchPlaceholder = "Looking for an specific one"
         static let headerTitleFailure = "Sorry, \nsomething went wrong"
+        static let headerTitleLoading = "Wait, \njust a moment \ngetting data..."
     }
 
 }

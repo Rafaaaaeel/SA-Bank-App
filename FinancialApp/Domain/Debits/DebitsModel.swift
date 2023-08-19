@@ -2,7 +2,7 @@ import Foundation
 
 typealias Debits = DebitsModel.Response
 
-struct DebitsModel {
+public struct DebitsModel {
     
     struct Request: RequestProtocol  {
         
@@ -33,7 +33,7 @@ struct DebitsModel {
     struct ViewModel {
         let data: [Debit]
 
-        var cout: Int {
+        var count: Int {
             return data.count
         }
         

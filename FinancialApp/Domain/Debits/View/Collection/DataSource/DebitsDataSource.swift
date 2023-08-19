@@ -1,23 +1,20 @@
 import UIKit
 
-final class DebitsDataSource: NSObject, UICollectionViewDataSource {
+final class DebitsDataSource: CommonBaseDataSource<Any> {
     
-    var model: DebitsModel.ViewModel?
+    var viewModel: DebitsModel.ViewModel? {
+        didSet {
+            model = viewModel?.data
+        }
+    }
     
     func debit(at index: Int) -> Debit? {
-        guard let model else { return nil }
-        return model.data[index]
+        guard let viewModel else { return nil }
+        return viewModel.data[index]
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.orEmpty
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let model, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DebitCollectionViewCell.identifier, for: indexPath) as? DebitCollectionViewCell else { return UICollectionViewCell() }
-        let data = model.data[indexPath.item]
-        cell.render(title: data.name, color: data.color, value: data.total?.asCurrencyValue ?? Double(0).asCurrencyValue)
-        return cell
+    init() {
+        super.init(cells: [.loading : DebitCollectionSkelletonViewCell.identifier, .done : DebitCollectionViewCell.identifier])
     }
     
 }

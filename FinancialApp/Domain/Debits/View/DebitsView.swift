@@ -71,18 +71,21 @@ final class DebitsView: CommonView {
         return nil
     }
         
-    override func loadSucces() {
+    override func loadSuccess() {
+        collectionView.isScrollEnabled = true
         collectionView.append(model)
         collectionView.set(width: width)
         collectionView.reload()
     }
     
+    override func loadLoading() {
+        collectionView.isScrollEnabled = false
+    }
+    
     override func loadError() {
         headerView.status = .failed
-        DispatchQueue.main.async {
-            self.retryButton.isHidden = false
-            self.errorImageView.isHidden = false
-        }
+        retryButton.isHidden = false
+        errorImageView.isHidden = false
     }
     
     @objc private func didTouchTry() {
@@ -150,7 +153,7 @@ extension DebitsView: DebitsCollectionViewDelegate {
     }
     
     func didScroll(_ scrollView: UIScrollView) {
-        guard let model, model.cout > 6 else { return }
+        guard let model, model.count > 6 else { return }
         let y = scrollView.contentOffset.y
         let mod = y.truncatingRemainder(dividingBy: scrollView.bounds.size.height )
         let difference = abs((2 * mod / (scrollView.bounds.size.height - 310)) - 1)

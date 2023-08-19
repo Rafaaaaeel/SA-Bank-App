@@ -27,7 +27,7 @@ final class DebitsCollectionView: UICollectionView {
     }
     
     func append(_ model: DebitsModel.ViewModel?) {
-        source.model = model
+        source.viewModel = model
     }
     
     func set(width: CGFloat) {
@@ -56,6 +56,7 @@ extension DebitsCollectionView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
         register(DebitCollectionViewCell.self, forCellWithReuseIdentifier:  DebitCollectionViewCell.identifier)
+        register(DebitCollectionSkelletonViewCell.self, forCellWithReuseIdentifier:  DebitCollectionSkelletonViewCell.identifier)
     }
     
 }

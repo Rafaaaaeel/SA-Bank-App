@@ -15,7 +15,7 @@ public class APIClient: APIClientProtocol {
     
     public func request<T: Decodable, Request: RequestProtocol>(request: Request) async throws -> T {
         do {
-            guard let url = URL(string: baseURL + request.url + (request.id ?? "")) else {
+            guard let url = URL(string: baseURL + request.url + request.id.orEmpty) else {
                 throw RequestError.invalidEndpoint
             }
 
@@ -36,6 +36,14 @@ public class APIClient: APIClientProtocol {
             
         }
         
+    }
+    
+}
+
+extension Optional where Wrapped == String {
+    
+    var orEmpty: String {
+        return self ?? .empty
     }
     
 }

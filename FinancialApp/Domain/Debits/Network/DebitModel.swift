@@ -1,6 +1,6 @@
 import Foundation
 
-struct Debit: Codable {
+public struct Debit: Codable {
     let _id: String
     let name: String
     let description: String

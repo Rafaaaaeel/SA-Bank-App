@@ -6,9 +6,7 @@ protocol DebitCollectionViewCellDelegate: AnyObject {
     
 }
 
-final class DebitCollectionViewCell: UICollectionViewCell {
-    
-    static var identifier = "DebitCollectionViewCell"
+final class DebitCollectionViewCell: CommonBaseCollectionCell, Reusable {
     
     weak var delegate: DebitCollectionViewCellDelegate?
     
@@ -47,6 +45,13 @@ final class DebitCollectionViewCell: UICollectionViewCell {
         return nil
     }
     
+    override func render<T>(model: T) {
+        guard let model = model as? Debit else { return }
+        titleLabel.text = model.name
+        valueLabel.text = model.total?.toString
+        backgroundColor = UIColor(hex: model.color)
+    }
+
 }
 
 extension DebitCollectionViewCell: CodableViews {
@@ -97,15 +102,6 @@ extension DebitCollectionViewCell: CodableViews {
     }
 }
 
-extension DebitCollectionViewCell {
-    
-    func render(title: String, color: String, value: String) {
-        titleLabel.text = title
-        valueLabel.text = value
-        backgroundColor = UIColor(hex: color)
-    }
-    
-}
 
 extension DebitCollectionViewCell {
     
@@ -131,4 +127,3 @@ extension DebitCollectionViewCell {
     }
     
 }
-
