@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27C8CE7C2B147C9100ED450F /* DebitsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CE7B2B147C9100ED450F /* DebitsTableView.swift */; };
+		27C8CE7E2B1480EA00ED450F /* DebitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CE7D2B1480EA00ED450F /* DebitsTableViewCell.swift */; };
+		27C8CE802B14815800ED450F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CE7F2B14815800ED450F /* CardView.swift */; };
+		27C8CE822B14866200ED450F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CE812B14866200ED450F /* Images.swift */; };
 		680773492A837F4400BE413D /* CGFloat+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680773482A837F4400BE413D /* CGFloat+Double.swift */; };
 		6807734D2A83830E00BE413D /* DebitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6807734C2A83830E00BE413D /* DebitCollectionViewCell.swift */; };
 		680773502A8385CA00BE413D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6807734F2A8385CA00BE413D /* UIView.swift */; };
@@ -92,6 +96,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27C8CE7B2B147C9100ED450F /* DebitsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitsTableView.swift; sourceTree = "<group>"; };
+		27C8CE7D2B1480EA00ED450F /* DebitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitsTableViewCell.swift; sourceTree = "<group>"; };
+		27C8CE7F2B14815800ED450F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		27C8CE812B14866200ED450F /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		680773482A837F4400BE413D /* CGFloat+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Double.swift"; sourceTree = "<group>"; };
 		6807734C2A83830E00BE413D /* DebitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitCollectionViewCell.swift; sourceTree = "<group>"; };
 		6807734F2A8385CA00BE413D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -189,6 +197,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27C8CE7A2B147C5500ED450F /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				27C8CE7B2B147C9100ED450F /* DebitsTableView.swift */,
+				27C8CE7D2B1480EA00ED450F /* DebitsTableViewCell.swift */,
+				27C8CE7F2B14815800ED450F /* CardView.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
 		680773472A837F2A00BE413D /* CGFloat */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +320,7 @@
 			children = (
 				6813FC392A70CDAE00BFD7FE /* DebitsView.swift */,
 				686AA98E2A863C98009CF21B /* Header */,
+				27C8CE7A2B147C5500ED450F /* Table */,
 				6813343A2A77A77B006C8B82 /* Collection */,
 				681334392A77A776006C8B82 /* Animation */,
 			);
@@ -385,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				6826E4E52A6715BA005A2BB8 /* SFImages.swift */,
+				27C8CE812B14866200ED450F /* Images.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -854,6 +874,8 @@
 				68B0FE882A70447A00E2C7E9 /* RegisterViewController.swift in Sources */,
 				6813FC352A70CD9900BFD7FE /* DebitsRouter.swift in Sources */,
 				6813BA842A60E08C0091F9A9 /* LoginPresenter.swift in Sources */,
+				27C8CE822B14866200ED450F /* Images.swift in Sources */,
+				27C8CE7E2B1480EA00ED450F /* DebitsTableViewCell.swift in Sources */,
 				68398D912A60C67200C108A4 /* APIClient+Protocols.swift in Sources */,
 				68B0FE842A70446600E2C7E9 /* RegisterPresenter.swift in Sources */,
 				6813BA8E2A60FA1C0091F9A9 /* LoginView.swift in Sources */,
@@ -884,8 +906,10 @@
 				68145C932A88FAE00047CED7 /* CreatorConfigurator.swift in Sources */,
 				68BA18312A6BAE4A007C40EE /* CommonTextLabel.swift in Sources */,
 				68B0FE862A70446E00E2C7E9 /* RegisterRouter.swift in Sources */,
+				27C8CE7C2B147C9100ED450F /* DebitsTableView.swift in Sources */,
 				680773522A8386E500BE413D /* Secondaries.swift in Sources */,
 				68145C992A88FB0C0047CED7 /* CreatorWorker.swift in Sources */,
+				27C8CE802B14815800ED450F /* CardView.swift in Sources */,
 				68E25F3E2A77BD42006D3A93 /* Decoder.swift in Sources */,
 				68398D6C2A60C3E400C108A4 /* SceneDelegate.swift in Sources */,
 				6826E4E62A6715BA005A2BB8 /* SFImages.swift in Sources */,

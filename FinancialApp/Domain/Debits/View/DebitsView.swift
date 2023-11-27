@@ -37,29 +37,11 @@ final class DebitsView: CommonView {
         return view
     }()
     
-    lazy var retryButton: CommonWhiteButton = {
-        let button = CommonWhiteButton()
-        button.tintColor = .primaryBackground
-        button.title = "Retry"
-        button.isHidden = true
-        button.addTarget(self, action: #selector(didTouchTry), for: .touchUpInside)
-        return button
-    }()
-    
-    lazy var errorImageView: UIImageView = {
-        let image = UIImage(named: "error")
-        let imageView = UIImageView(image: image)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.isHidden = true
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
     private var animationHeightAnchor: NSLayoutConstraint = NSLayoutConstraint()
     private var headerTopAnchor: NSLayoutConstraint = NSLayoutConstraint()
     
-    private lazy var headerView = DebitsHeaderView()
-    private lazy var collectionView = DebitsCollectionView(delegate: self, width: width)
+    private let headerView = DebitsHeaderView()
+    private let tableView = DebitsTableView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,29 +51,6 @@ final class DebitsView: CommonView {
     
     required init?(coder: NSCoder) {
         return nil
-    }
-        
-    override func loadSuccess() {
-        collectionView.isScrollEnabled = true
-        collectionView.append(model)
-        collectionView.set(width: width)
-        collectionView.reload()
-    }
-    
-    override func loadLoading() {
-        collectionView.isScrollEnabled = false
-    }
-    
-    override func loadError() {
-        headerView.status = .failed
-        retryButton.isHidden = false
-        errorImageView.isHidden = false
-    }
-    
-    @objc private func didTouchTry() {
-        retryButton.increment()
-        guard retryButton.tapCounter <= 2 else { return }
-        delegate?.didTouchRetry()
     }
     
 }
@@ -104,7 +63,7 @@ extension DebitsView: CodableViews {
     }
     
     func setupHiearchy() {
-        addSubviews(headerView, collectionView, animationView, errorImageView, retryButton)
+        addSubviews(headerView, tableView, animationView)
     }
     
     func setupContraints() {
@@ -117,27 +76,15 @@ extension DebitsView: CodableViews {
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]
         
-        let collectionConstraints = [
-            collectionView.topAnchor.constraint(equalToSystemSpacingBelow: headerView.bottomAnchor, multiplier: 0),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
-        ]
-        
-        let retryButtonConstraints = [
-            retryButton.widthAnchor.constraint(equalToConstant: 150),
-            retryButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -24),
-            retryButton.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ]
-        
-        let errorImageViewConstraints = [
-            errorImageView.heightAnchor.constraint(equalToConstant: 400),
-            errorImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            errorImageView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        let tableviewConstraints = [
+            tableView.topAnchor.constraint(equalToSystemSpacingBelow: headerView.bottomAnchor, multiplier: 0),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ]
         
         
-        NSLayoutConstraint.activeAll(headerViewConstraints, collectionConstraints, retryButtonConstraints, errorImageViewConstraints)
+        NSLayoutConstraint.activeAll(headerViewConstraints, tableviewConstraints)
     }
 
 }
