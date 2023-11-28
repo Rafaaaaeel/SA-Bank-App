@@ -19,6 +19,7 @@ final class CardsViewController: CommonViewController, CardsViewControllerProtoc
     }
     
     func didLoadView() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didTouchCard), name: Notification.Name("cardTouched"), object: nil)
         interactor?.getDebits()
     }
 
@@ -32,6 +33,12 @@ final class CardsViewController: CommonViewController, CardsViewControllerProtoc
     
     func didLoadFailed() {
         debitsView.status = .failed
+    }
+    
+    @objc func didTouchCard() {
+        UIView.animate(withDuration: 0.3, delay: 0.2) {
+            self.view.layer.opacity = 1
+        }
     }
 }
 

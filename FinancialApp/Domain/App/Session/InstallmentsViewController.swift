@@ -27,7 +27,9 @@ final class InstallmentsViewController: CommonViewController, InstallmentsViewCo
     }
     
     @objc func didTouchCard() {
-        dismiss(animated: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss(animated: false)
+        }
     }
     
 }

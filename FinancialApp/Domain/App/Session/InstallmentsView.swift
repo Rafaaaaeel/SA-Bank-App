@@ -12,9 +12,16 @@ final class InstallmentsView: CommonView {
         self.model = model
         super.init(frame: .zero)
         setup()
+        NotificationCenter.default.addObserver(self, selector: #selector(didTouchCard), name: Notification.Name("cardTouched"), object: nil)
     }
     
     required init?(coder: NSCoder) { nil }
+    
+    @objc func didTouchCard() {
+        UIView.animate(withDuration: 0.3) {
+            self.cardView.frame.origin.y = self.position.origin.y
+        }
+    }
     
 }
 
