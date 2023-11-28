@@ -3,6 +3,7 @@ import UIKit
 final class InstallmentsView: CommonView {
     
     private lazy var cardView = CardView(frame: position)
+//    let testView = UIView()
     
     private let position: CGRect
     private let model: Debit
@@ -35,9 +36,9 @@ extension InstallmentsView: CodableViews {
         cardView.translatesAutoresizingMaskIntoConstraints = true
         addSubview(cardView)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             UIView.animate(withDuration: 0.4) {
-                self.cardView.frame.origin.y = 50/*self.position.origin.y - 100*/
+                self.cardView.frame.origin.y = 50
             }
         }
         

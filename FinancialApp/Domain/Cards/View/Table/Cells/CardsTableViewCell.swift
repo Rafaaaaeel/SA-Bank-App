@@ -38,21 +38,3 @@ extension CardsTableViewCell: CodableViews {
     }
     
 }
-
-extension CardsTableViewCell {
-    
-    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        UIView.animate(withDuration: 0.2) {
-            self.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
-        }
-        super.touchesBegan(touches, with: event)
-    }
-
-    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        UIView.animate(withDuration: 0.3) {
-            self.transform = CGAffineTransform.identity
-        }
-        super.touchesEnded(touches, with: event)
-    }
-    
-}

@@ -26,6 +26,7 @@
 		27C8CEA72B155C3A00ED450F /* InstallmentsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEA62B155C3A00ED450F /* InstallmentsConfigurator.swift */; };
 		27C8CEA92B155D4A00ED450F /* InstallmentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEA82B155D4A00ED450F /* InstallmentsRouter.swift */; };
 		27C8CEAB2B155D5F00ED450F /* InstallmentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEAA2B155D5F00ED450F /* InstallmentsModel.swift */; };
+		27C8CEAE2B157F6600ED450F /* InstallmentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEAD2B157F6600ED450F /* InstallmentTableView.swift */; };
 		680773492A837F4400BE413D /* CGFloat+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680773482A837F4400BE413D /* CGFloat+Double.swift */; };
 		680773502A8385CA00BE413D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6807734F2A8385CA00BE413D /* UIView.swift */; };
 		680773522A8386E500BE413D /* Secondaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680773512A8386E500BE413D /* Secondaries.swift */; };
@@ -125,6 +126,7 @@
 		27C8CEA62B155C3A00ED450F /* InstallmentsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstallmentsConfigurator.swift; path = FinancialApp/Domain/App/Session/InstallmentsConfigurator.swift; sourceTree = SOURCE_ROOT; };
 		27C8CEA82B155D4A00ED450F /* InstallmentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstallmentsRouter.swift; path = FinancialApp/Domain/App/Session/InstallmentsRouter.swift; sourceTree = SOURCE_ROOT; };
 		27C8CEAA2B155D5F00ED450F /* InstallmentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstallmentsModel.swift; path = FinancialApp/Domain/App/Session/InstallmentsModel.swift; sourceTree = SOURCE_ROOT; };
+		27C8CEAD2B157F6600ED450F /* InstallmentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentTableView.swift; sourceTree = "<group>"; };
 		680773482A837F4400BE413D /* CGFloat+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Double.swift"; sourceTree = "<group>"; };
 		6807734F2A8385CA00BE413D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		680773512A8386E500BE413D /* Secondaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secondaries.swift; sourceTree = "<group>"; };
@@ -259,6 +261,14 @@
 				27C8CE962B15521900ED450F /* SessionManager.swift */,
 			);
 			path = Session;
+			sourceTree = "<group>";
+		};
+		27C8CEAC2B157F3900ED450F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				27C8CEAD2B157F6600ED450F /* InstallmentTableView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		680773472A837F2A00BE413D /* CGFloat */ = {
@@ -614,6 +624,7 @@
 		68398D872A60C52800C108A4 /* Installments */ = {
 			isa = PBXGroup;
 			children = (
+				27C8CEAC2B157F3900ED450F /* View */,
 				27C8CE9E2B155C0100ED450F /* Installments+Protocols.swift */,
 				27C8CEA62B155C3A00ED450F /* InstallmentsConfigurator.swift */,
 				27C8CE9C2B155BF200ED450F /* InstallmentsPresenter.swift */,
@@ -917,6 +928,7 @@
 				6813FC292A70CD5500BFD7FE /* Cards+Protocols.swift in Sources */,
 				686AA9902A863CCE009CF21B /* DebitsHeaderView.swift in Sources */,
 				6821A7D42A90FF7700C9C1E5 /* CommonDataSource.swift in Sources */,
+				27C8CEAE2B157F6600ED450F /* InstallmentTableView.swift in Sources */,
 				6813FC312A70CD8A00BFD7FE /* CardsWorker.swift in Sources */,
 				68A665AF2A705A970074D8A7 /* RegisterWoker.swift in Sources */,
 				6813FC3A2A70CDAE00BFD7FE /* CardsView.swift in Sources */,
