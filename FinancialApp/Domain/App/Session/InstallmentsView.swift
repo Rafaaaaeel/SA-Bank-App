@@ -1,0 +1,44 @@
+import UIKit
+
+final class InstallmentsView: CommonView {
+    
+    private lazy var cardView = CardView(frame: position)
+    
+    private let position: CGRect
+    private let model: Debit
+    
+    init(card position: CGRect, model: Debit) {
+        self.position = position
+        self.model = model
+        super.init(frame: .zero)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) { nil }
+    
+}
+
+extension InstallmentsView: CodableViews {
+    
+    func configView() {
+        cardView.render(model)
+    }
+    
+    func setupHiearchy() {
+        cardView.translatesAutoresizingMaskIntoConstraints = true
+        addSubview(cardView)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            UIView.animate(withDuration: 0.4) {
+                self.cardView.frame.origin.y = 50/*self.position.origin.y - 100*/
+            }
+        }
+        
+    }
+    
+    func setupContraints() {
+        
+    }
+    
+    
+}

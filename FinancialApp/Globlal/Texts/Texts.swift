@@ -17,7 +17,7 @@ struct Text {
     }
     
     struct TabBar {
-        static let debits = "Debits"
+        static let debits = "Cards"
         static let account = "Account"
         static let home = "Home"
         static let search = "Search"

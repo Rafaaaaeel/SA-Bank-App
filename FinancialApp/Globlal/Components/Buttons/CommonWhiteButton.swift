@@ -77,7 +77,6 @@ class CommonWhiteButton: UIButton {
 
 }
 
-
 extension CommonWhiteButton {
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

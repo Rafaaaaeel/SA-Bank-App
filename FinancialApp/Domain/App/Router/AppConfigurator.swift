@@ -12,7 +12,7 @@ class AppConfigurator {
             return LoginConfigurator.view()
         }
         
-        let debitsViewController = DebitsConfigurator.view()
+        let debitsViewController = CardsConfigurator.view()
         let accountViewController = UIViewController()
         let homeViewController = UIViewController()
         let searchViewController = UIViewController()
@@ -26,10 +26,10 @@ class AppConfigurator {
         homeViewController.setTabBarImage(imageName: SFImages.TabBar.home, title: Text.TabBar.home)
         searchViewController.setTabBarImage(imageName: SFImages.TabBar.search, title: Text.TabBar.search)
         
-        tabController.viewControllers = [homeViewController,
-                                         debitsViewController,
-                                         searchViewController,
-                                         accountViewController]
+        tabController.viewControllers = [UINavigationController(rootViewController: homeViewController),
+                                         UINavigationController(rootViewController: debitsViewController),
+                                         UINavigationController(rootViewController: searchViewController),
+                                         UINavigationController(rootViewController:accountViewController)]
         tabController.selectedIndex = 1
         
         return tabController
