@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27BCE2C42B188DB40007B7A7 /* InstallmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCE2C32B188DB40007B7A7 /* InstallmentView.swift */; };
 		27C8CE7C2B147C9100ED450F /* CardsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CE7B2B147C9100ED450F /* CardsTableView.swift */; };
 		27C8CE7E2B1480EA00ED450F /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CE7D2B1480EA00ED450F /* CardsTableViewCell.swift */; };
 		27C8CE802B14815800ED450F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CE7F2B14815800ED450F /* CardView.swift */; };
@@ -26,7 +27,9 @@
 		27C8CEA72B155C3A00ED450F /* InstallmentsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEA62B155C3A00ED450F /* InstallmentsConfigurator.swift */; };
 		27C8CEA92B155D4A00ED450F /* InstallmentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEA82B155D4A00ED450F /* InstallmentsRouter.swift */; };
 		27C8CEAB2B155D5F00ED450F /* InstallmentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEAA2B155D5F00ED450F /* InstallmentsModel.swift */; };
-		27C8CEAE2B157F6600ED450F /* InstallmentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEAD2B157F6600ED450F /* InstallmentTableView.swift */; };
+		27C8CEAE2B157F6600ED450F /* InstallmentsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEAD2B157F6600ED450F /* InstallmentsTableView.swift */; };
+		27C8CEB02B16B7DB00ED450F /* InstallmentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEAF2B16B7DB00ED450F /* InstallmentDataSource.swift */; };
+		27C8CEB22B16B9C600ED450F /* InstallmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CEB12B16B9C600ED450F /* InstallmentTableViewCell.swift */; };
 		680773492A837F4400BE413D /* CGFloat+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680773482A837F4400BE413D /* CGFloat+Double.swift */; };
 		680773502A8385CA00BE413D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6807734F2A8385CA00BE413D /* UIView.swift */; };
 		680773522A8386E500BE413D /* Secondaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680773512A8386E500BE413D /* Secondaries.swift */; };
@@ -107,6 +110,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27BCE2C32B188DB40007B7A7 /* InstallmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentView.swift; sourceTree = "<group>"; };
 		27C8CE7B2B147C9100ED450F /* CardsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableView.swift; sourceTree = "<group>"; };
 		27C8CE7D2B1480EA00ED450F /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 		27C8CE7F2B14815800ED450F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -126,7 +130,9 @@
 		27C8CEA62B155C3A00ED450F /* InstallmentsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstallmentsConfigurator.swift; path = FinancialApp/Domain/App/Session/InstallmentsConfigurator.swift; sourceTree = SOURCE_ROOT; };
 		27C8CEA82B155D4A00ED450F /* InstallmentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstallmentsRouter.swift; path = FinancialApp/Domain/App/Session/InstallmentsRouter.swift; sourceTree = SOURCE_ROOT; };
 		27C8CEAA2B155D5F00ED450F /* InstallmentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstallmentsModel.swift; path = FinancialApp/Domain/App/Session/InstallmentsModel.swift; sourceTree = SOURCE_ROOT; };
-		27C8CEAD2B157F6600ED450F /* InstallmentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentTableView.swift; sourceTree = "<group>"; };
+		27C8CEAD2B157F6600ED450F /* InstallmentsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentsTableView.swift; sourceTree = "<group>"; };
+		27C8CEAF2B16B7DB00ED450F /* InstallmentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentDataSource.swift; sourceTree = "<group>"; };
+		27C8CEB12B16B9C600ED450F /* InstallmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentTableViewCell.swift; sourceTree = "<group>"; };
 		680773482A837F4400BE413D /* CGFloat+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Double.swift"; sourceTree = "<group>"; };
 		6807734F2A8385CA00BE413D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		680773512A8386E500BE413D /* Secondaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secondaries.swift; sourceTree = "<group>"; };
@@ -266,7 +272,10 @@
 		27C8CEAC2B157F3900ED450F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				27C8CEAD2B157F6600ED450F /* InstallmentTableView.swift */,
+				27C8CEAD2B157F6600ED450F /* InstallmentsTableView.swift */,
+				27C8CEAF2B16B7DB00ED450F /* InstallmentDataSource.swift */,
+				27C8CEB12B16B9C600ED450F /* InstallmentTableViewCell.swift */,
+				27BCE2C32B188DB40007B7A7 /* InstallmentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -889,6 +898,7 @@
 				6820B3562A68FB93008C3211 /* CommonWhiteButton.swift in Sources */,
 				27C8CEA12B155C0800ED450F /* InstallmentsView.swift in Sources */,
 				68145CA12A88FB350047CED7 /* CreatorView.swift in Sources */,
+				27C8CEB22B16B9C600ED450F /* InstallmentTableViewCell.swift in Sources */,
 				27C8CEAB2B155D5F00ED450F /* InstallmentsModel.swift in Sources */,
 				6813BA802A60E0720091F9A9 /* Login+Protocols.swift in Sources */,
 				686FF4792A70D9B600E660FC /* CommonViewController.swift in Sources */,
@@ -928,7 +938,8 @@
 				6813FC292A70CD5500BFD7FE /* Cards+Protocols.swift in Sources */,
 				686AA9902A863CCE009CF21B /* DebitsHeaderView.swift in Sources */,
 				6821A7D42A90FF7700C9C1E5 /* CommonDataSource.swift in Sources */,
-				27C8CEAE2B157F6600ED450F /* InstallmentTableView.swift in Sources */,
+				27C8CEAE2B157F6600ED450F /* InstallmentsTableView.swift in Sources */,
+				27BCE2C42B188DB40007B7A7 /* InstallmentView.swift in Sources */,
 				6813FC312A70CD8A00BFD7FE /* CardsWorker.swift in Sources */,
 				68A665AF2A705A970074D8A7 /* RegisterWoker.swift in Sources */,
 				6813FC3A2A70CDAE00BFD7FE /* CardsView.swift in Sources */,
@@ -954,6 +965,7 @@
 				27C8CEA72B155C3A00ED450F /* InstallmentsConfigurator.swift in Sources */,
 				68E25F3E2A77BD42006D3A93 /* Decoder.swift in Sources */,
 				68398D6C2A60C3E400C108A4 /* SceneDelegate.swift in Sources */,
+				27C8CEB02B16B7DB00ED450F /* InstallmentDataSource.swift in Sources */,
 				27C8CE8C2B14A37100ED450F /* CardsTableViewSkeletonCell.swift in Sources */,
 				27C8CE9F2B155C0100ED450F /* Installments+Protocols.swift in Sources */,
 				6826E4E62A6715BA005A2BB8 /* SFImages.swift in Sources */,
