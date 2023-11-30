@@ -24,6 +24,7 @@ final class InstallmentsTableView: UITableView {
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
         layer.cornerRadius = 8
+        isScrollEnabled = false
     }
     
 }

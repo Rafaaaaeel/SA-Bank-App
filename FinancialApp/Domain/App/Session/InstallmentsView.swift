@@ -33,13 +33,18 @@ final class InstallmentsView: CommonView {
 extension InstallmentsView: CodableViews {
     
     func configView() {
+        contentView.backgroundColor = .blue
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         cardView.translatesAutoresizingMaskIntoConstraints = true
         cardView.render(model)
         installmentsTableView.add(model.installments)
     }
     
     func setupHiearchy() {
-        addSubview(cardView)
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubviews(cardView, installmentsTableView)
     }
     
     func setupContraints() {
@@ -50,14 +55,31 @@ extension InstallmentsView: CodableViews {
             }
         }
         
-//        let installmentsTableViewConstraints = [
-//            installmentsTableView.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1),
-//            installmentsTableView.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 2),
-//            trailingAnchor.constraint(equalToSystemSpacingAfter: installmentsTableView.trailingAnchor, multiplier: 2),
-//            installmentsTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
-//        ]
-//        
-//        NSLayoutConstraint.activate(installmentsTableViewConstraints)
+        let scrollViewConstraints = [
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ]
+        
+        let contentViewConstraints = [
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        ]
+        
+        let installmentsTableViewConstraints = [
+            installmentsTableView.topAnchor.constraint(equalToSystemSpacingBelow: cardView.bottomAnchor, multiplier: 2),
+            installmentsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            installmentsTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            installmentsTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ]
+        
+        NSLayoutConstraint.activeAll(scrollViewConstraints, contentViewConstraints)
+        
     }
     
     
