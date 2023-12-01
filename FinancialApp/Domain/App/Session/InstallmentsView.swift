@@ -49,6 +49,10 @@ extension InstallmentsView: CodableViews {
     
     func setupContraints() {
 
+        let heightAnchor = contentView.heightAnchor.constraint (equalTo: scrollView.heightAnchor)
+        heightAnchor.isActive = true
+        heightAnchor.priority = UILayoutPriority (50)
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             UIView.animate(withDuration: 0.4) {
                 self.cardView.frame.origin.y = 50
@@ -68,7 +72,6 @@ extension InstallmentsView: CodableViews {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
         ]
         
         let installmentsTableViewConstraints = [
@@ -78,7 +81,7 @@ extension InstallmentsView: CodableViews {
             installmentsTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ]
         
-        NSLayoutConstraint.activeAll(scrollViewConstraints, contentViewConstraints)
+        NSLayoutConstraint.activeAll(scrollViewConstraints, contentViewConstraints, installmentsTableViewConstraints)
         
     }
     

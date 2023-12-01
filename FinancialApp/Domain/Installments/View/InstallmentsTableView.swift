@@ -1,6 +1,6 @@
 import UIKit
 
-final class InstallmentsTableView: UITableView {
+final class InstallmentsTableView: SelfSizedTableview {
     
     var source: InstallmentDataSource
     
@@ -24,7 +24,24 @@ final class InstallmentsTableView: UITableView {
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
         layer.cornerRadius = 8
-        isScrollEnabled = false
+        estimatedRowHeight = 100
+        rowHeight = UITableView.automaticDimension
+    }
+    
+}
+
+public class SelfSizedTableview: UITableView {
+    
+    override public var contentSize: CGSize {
+        didSet {
+            invalidateIntrinsicContentSize()
+            setNeedsLayout()
+        }
+    }
+    
+    override public var intrinsicContentSize: CGSize {
+        let height = min(.infinity, contentSize.height)
+        return CGSize(width: contentSize.width, height: height)
     }
     
 }
