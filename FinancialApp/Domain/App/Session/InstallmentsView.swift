@@ -91,7 +91,7 @@ extension InstallmentsView: CodableViews {
         
         NSLayoutConstraint.activate(installmentsTableViewConstraints)
         
-        if let top = UIApplication.shared.windows.first?.safeAreaInsets.top {
+        if let top = UIApplication.shared.windows.first?.safeAreaInsets.top, model.installments.count > 10 {
             scrollView.contentInset.top = -top
         }
         

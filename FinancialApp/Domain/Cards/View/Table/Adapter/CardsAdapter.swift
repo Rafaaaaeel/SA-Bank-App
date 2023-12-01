@@ -22,8 +22,4 @@ final class CardsAdapter: NSObject, UITableViewDelegate {
         delegate?.didTouchCell(at: position, at: indexPath.row)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-    }
-    
 }

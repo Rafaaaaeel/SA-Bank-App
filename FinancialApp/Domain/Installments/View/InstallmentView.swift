@@ -38,7 +38,7 @@ extension InstallmentView: CodableViews {
         
         let valueLabelConstraints = [
             valueLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            valueLabel.trailingAnchor.constraint(equalToSystemSpacingAfter: trailingAnchor , multiplier: 1)
+            trailingAnchor.constraint(equalToSystemSpacingAfter: valueLabel.trailingAnchor , multiplier: 1)
         ]
         
         
