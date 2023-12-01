@@ -47,6 +47,7 @@ extension CardsViewController: CardsViewDelegate {
     func didSelectCard(of id: String, at position: CGRect, model: Debit) {
     
         router?.didSelectCard(of: id, at: position, model: model)
+        
         UIView.animate(withDuration: 0.2) {
             self.view.layer.opacity = 0
         }

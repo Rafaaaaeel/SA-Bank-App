@@ -24,6 +24,7 @@ final class InstallmentsView: CommonView {
     
     @objc func didTouchCard() {
         UIView.animate(withDuration: 0.3) {
+            self.installmentsTableView.layer.opacity = 0
             self.cardView.frame.origin.y = self.position.origin.y
         }
     }
@@ -33,7 +34,6 @@ final class InstallmentsView: CommonView {
 extension InstallmentsView: CodableViews {
     
     func configView() {
-        contentView.backgroundColor = .blue
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         cardView.translatesAutoresizingMaskIntoConstraints = true
@@ -44,18 +44,20 @@ extension InstallmentsView: CodableViews {
     func setupHiearchy() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(cardView, installmentsTableView)
+        contentView.addSubviews(cardView)
     }
     
     func setupContraints() {
 
         let heightAnchor = contentView.heightAnchor.constraint (equalTo: scrollView.heightAnchor)
         heightAnchor.isActive = true
-        heightAnchor.priority = UILayoutPriority (50)
+        heightAnchor.priority = UILayoutPriority(50)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             UIView.animate(withDuration: 0.4) {
                 self.cardView.frame.origin.y = 50
+            } completion: { _ in
+                self.showTableView()
             }
         }
         
@@ -74,6 +76,12 @@ extension InstallmentsView: CodableViews {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ]
         
+        NSLayoutConstraint.activeAll(scrollViewConstraints, contentViewConstraints)
+        
+    }
+    
+    private func showTableView() {
+        contentView.addSubview(installmentsTableView)
         let installmentsTableViewConstraints = [
             installmentsTableView.topAnchor.constraint(equalToSystemSpacingBelow: cardView.bottomAnchor, multiplier: 2),
             installmentsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -81,9 +89,16 @@ extension InstallmentsView: CodableViews {
             installmentsTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ]
         
-        NSLayoutConstraint.activeAll(scrollViewConstraints, contentViewConstraints, installmentsTableViewConstraints)
+        NSLayoutConstraint.activate(installmentsTableViewConstraints)
+        
+        if let top = UIApplication.shared.windows.first?.safeAreaInsets.top {
+            scrollView.contentInset.top = -top
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+            self.installmentsTableView.layer.opacity = 1
+        }
         
     }
-    
     
 }

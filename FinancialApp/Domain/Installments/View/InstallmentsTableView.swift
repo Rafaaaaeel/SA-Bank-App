@@ -14,18 +14,19 @@ final class InstallmentsTableView: SelfSizedTableview {
     
     func add(_ installments: [Installment]) {
         source.installments = installments
-        reloadData()
     }
     
     private func configure() {
         dataSource = source
         register(InstallmentTableViewCell.self, forCellReuseIdentifier: InstallmentTableViewCell.identifier)
-        backgroundColor = .darkGray
+        backgroundColor = .systemGray6
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
         layer.cornerRadius = 8
-        estimatedRowHeight = 100
-        rowHeight = UITableView.automaticDimension
+        estimatedRowHeight = 60
+        rowHeight = 50
+//        rowHeight = UITableView.automaticDimension
+        layer.opacity = 0
     }
     
 }
