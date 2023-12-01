@@ -23,6 +23,7 @@ final class InstallmentsView: CommonView {
     required init?(coder: NSCoder) { nil }
     
     @objc func didTouchCard() {
+        scrollView.scrollToTop()
         UIView.animate(withDuration: 0.3) {
             self.installmentsTableView.layer.opacity = 0
             self.cardView.frame.origin.y = self.position.origin.y
@@ -101,4 +102,9 @@ extension InstallmentsView: CodableViews {
         
     }
     
+}
+extension UIScrollView {
+    func scrollToTop() {
+        setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+   }
 }

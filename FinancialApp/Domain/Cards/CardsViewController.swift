@@ -63,7 +63,7 @@ extension CardsViewController: CardsViewDelegate {
     }
     
     func didEndAnimation() {
-//        toggleTabbar()
+        toggleTabbar()
         updateUI()
     }
     

@@ -25,6 +25,7 @@ final class InstallmentsTableView: SelfSizedTableview {
         layer.cornerRadius = 8
         estimatedRowHeight = 60
         rowHeight = 50
+        isScrollEnabled = false
 //        rowHeight = UITableView.automaticDimension
         layer.opacity = 0
     }

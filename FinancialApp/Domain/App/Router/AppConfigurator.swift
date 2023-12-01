@@ -32,6 +32,8 @@ class AppConfigurator {
                                          UINavigationController(rootViewController:accountViewController)]
         tabController.selectedIndex = 1
         
+        tabController.tabBar.isHidden = true
+    
         return tabController
     }
     
