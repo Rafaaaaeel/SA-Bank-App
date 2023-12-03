@@ -22,8 +22,8 @@ final class InstallmentsViewController: CommonViewController, InstallmentsViewCo
     
     override func loadView() {
         super.loadView()
-        
         view = installmentsView
+        
     }
     
     @objc func didTouchCard() {
@@ -31,5 +31,9 @@ final class InstallmentsViewController: CommonViewController, InstallmentsViewCo
             self.dismiss(animated: false)
         }
     }
+    
+}
+
+class Observable {
     
 }

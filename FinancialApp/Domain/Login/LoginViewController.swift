@@ -6,6 +6,16 @@ class LoginViewController: UIViewController {
     var router: LoginRouterProtocol?
     
     private var loginView: LoginView = LoginView()
+    private var sessionManager: SessionManagerProtocol
+    
+    init(sessionManager: SessionManagerProtocol = SessionManager.shared) {
+        self.sessionManager = sessionManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +49,7 @@ extension LoginViewController: LoginInteractorInput {
 extension LoginViewController: LoginViewDelegate {
     
     func didTouchLogin() {
+        sessionManager.isUserLogged = true
         router?.didLogin()
     }
     

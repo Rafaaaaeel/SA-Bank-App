@@ -3,9 +3,11 @@ import UIKit
 final class InstallmentsTableView: SelfSizedTableview {
     
     var source: InstallmentDataSource
+    var adapter: InstallmentAdapter
     
-    init(source: InstallmentDataSource = InstallmentDataSource()) {
+    init(source: InstallmentDataSource = InstallmentDataSource(), adatper: InstallmentAdapter = InstallmentAdapter()) {
         self.source = source
+        self.adapter = adatper
         super.init(frame: .zero, style: .plain)
         configure()
     }
@@ -18,15 +20,15 @@ final class InstallmentsTableView: SelfSizedTableview {
     
     private func configure() {
         dataSource = source
+        delegate = adapter
         register(InstallmentTableViewCell.self, forCellReuseIdentifier: InstallmentTableViewCell.identifier)
-        backgroundColor = .systemGray6
+        backgroundColor = .secundaryBackground
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
         layer.cornerRadius = 8
-        estimatedRowHeight = 60
-        rowHeight = 50
+        estimatedRowHeight = 120
+        rowHeight = UITableView.automaticDimension
         isScrollEnabled = false
-//        rowHeight = UITableView.automaticDimension
         layer.opacity = 0
     }
     

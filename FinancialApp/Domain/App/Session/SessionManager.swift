@@ -4,10 +4,19 @@ enum UserDefaultsKeys {
     static let userLogin = "userLogin"
 }
 
-
-final class SessionManager {
+protocol SessionManagerProtocol {
     
+    var isUserLogged: Bool { get set }
+}
+
+
+final class SessionManager: SessionManagerProtocol {
+
+    static let shared = SessionManager()
+
     private let userDefaults = UserDefaults.standard
+
+    private init() { }
     
     var isUserLogged: Bool {
         get {

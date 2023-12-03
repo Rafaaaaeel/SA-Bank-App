@@ -2,13 +2,10 @@ import UIKit
 
 class AppConfigurator {
     
+
     static func view() -> UIViewController {
 
-//        TODO: - Verify logged user later
-        
-        let userLogged = true
-
-        guard userLogged else {
+        guard SessionManager.shared.isUserLogged else {
             return LoginConfigurator.view()
         }
         

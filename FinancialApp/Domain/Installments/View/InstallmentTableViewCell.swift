@@ -12,7 +12,7 @@ final class InstallmentTableViewCell: UITableViewCell, Reusable {
     required init?(coder: NSCoder) { nil }
     
     func render(_ section: Installment) {
-        
+        installmentView.model = section
     }
     
 }

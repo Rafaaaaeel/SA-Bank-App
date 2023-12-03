@@ -7,6 +7,7 @@ final class InstallmentsView: CommonView {
     private let contentView = UIView()
     
     private lazy var cardView = CardView(frame: position)
+    private lazy var headerView = InstallmentHeaderView()
     private lazy var installmentsTableView = InstallmentsTableView()
     
     private let position: CGRect
@@ -35,6 +36,7 @@ final class InstallmentsView: CommonView {
 extension InstallmentsView: CodableViews {
     
     func configView() {
+        scrollView.delegate = self
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         cardView.translatesAutoresizingMaskIntoConstraints = true
@@ -56,7 +58,10 @@ extension InstallmentsView: CodableViews {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             UIView.animate(withDuration: 0.4) {
-                self.cardView.frame.origin.y = 50
+                if let top = UIApplication.shared.windows.first?.safeAreaInsets.top {
+                    self.cardView.frame.origin.y = 50 + top
+                }
+                
             } completion: { _ in
                 self.showTableView()
             }
@@ -92,8 +97,10 @@ extension InstallmentsView: CodableViews {
         
         NSLayoutConstraint.activate(installmentsTableViewConstraints)
         
-        if let top = UIApplication.shared.windows.first?.safeAreaInsets.top, model.installments.count > 10 {
-            scrollView.contentInset.top = -top
+        if let top = UIApplication.shared.windows.first?.safeAreaInsets.top {
+            UIView.animate(withDuration: 0.2) {
+                self.scrollView.contentInset.top = -top
+            }
         }
         
         UIView.animate(withDuration: 0.2) {
@@ -103,8 +110,13 @@ extension InstallmentsView: CodableViews {
     }
     
 }
-extension UIScrollView {
-    func scrollToTop() {
-        setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-   }
+
+extension InstallmentsView: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let maxOffSet: CGFloat = position.height + 42.01
+        let isOverOffset = scrollView.contentOffset.y > maxOffSet 
+        print(isOverOffset)
+    }
+    
 }

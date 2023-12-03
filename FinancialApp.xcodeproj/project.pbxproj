@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273B0FAE2B1C8FF6004EB589 /* Decimal+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273B0FAD2B1C8FF6004EB589 /* Decimal+Currency.swift */; };
+		273B0FB02B1C92C3004EB589 /* InstallmentAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273B0FAF2B1C92C3004EB589 /* InstallmentAdapter.swift */; };
+		273B0FB22B1C9BEC004EB589 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273B0FB12B1C9BEC004EB589 /* Date.swift */; };
+		273B0FB42B1C9D4B004EB589 /* CommonHeadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273B0FB32B1C9D4B004EB589 /* CommonHeadingLabel.swift */; };
+		273B0FB62B1CA67F004EB589 /* InstallmentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273B0FB52B1CA67E004EB589 /* InstallmentHeaderView.swift */; };
 		27BCE2C42B188DB40007B7A7 /* InstallmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCE2C32B188DB40007B7A7 /* InstallmentView.swift */; };
+		27BCE2C82B1B2CE50007B7A7 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCE2C72B1B2CE50007B7A7 /* UIScrollView.swift */; };
 		27C8CE7C2B147C9100ED450F /* CardsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CE7B2B147C9100ED450F /* CardsTableView.swift */; };
 		27C8CE7E2B1480EA00ED450F /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CE7D2B1480EA00ED450F /* CardsTableViewCell.swift */; };
 		27C8CE802B14815800ED450F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8CE7F2B14815800ED450F /* CardView.swift */; };
@@ -110,7 +116,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		273B0FAD2B1C8FF6004EB589 /* Decimal+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Currency.swift"; sourceTree = "<group>"; };
+		273B0FAF2B1C92C3004EB589 /* InstallmentAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentAdapter.swift; sourceTree = "<group>"; };
+		273B0FB12B1C9BEC004EB589 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		273B0FB32B1C9D4B004EB589 /* CommonHeadingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHeadingLabel.swift; sourceTree = "<group>"; };
+		273B0FB52B1CA67E004EB589 /* InstallmentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentHeaderView.swift; sourceTree = "<group>"; };
 		27BCE2C32B188DB40007B7A7 /* InstallmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentView.swift; sourceTree = "<group>"; };
+		27BCE2C72B1B2CE50007B7A7 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		27C8CE7B2B147C9100ED450F /* CardsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableView.swift; sourceTree = "<group>"; };
 		27C8CE7D2B1480EA00ED450F /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 		27C8CE7F2B14815800ED450F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -225,6 +237,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		273B0FAC2B1C8FED004EB589 /* Decimal */ = {
+			isa = PBXGroup;
+			children = (
+				273B0FAD2B1C8FF6004EB589 /* Decimal+Currency.swift */,
+			);
+			path = Decimal;
+			sourceTree = "<group>";
+		};
+		27BCE2C62B1B2CBC0007B7A7 /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				27BCE2C72B1B2CE50007B7A7 /* UIScrollView.swift */,
+			);
+			path = UIScrollView;
+			sourceTree = "<group>";
+		};
 		27C8CE7A2B147C5500ED450F /* Table */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,8 +302,10 @@
 			children = (
 				27C8CEAD2B157F6600ED450F /* InstallmentsTableView.swift */,
 				27C8CEAF2B16B7DB00ED450F /* InstallmentDataSource.swift */,
+				273B0FAF2B1C92C3004EB589 /* InstallmentAdapter.swift */,
 				27C8CEB12B16B9C600ED450F /* InstallmentTableViewCell.swift */,
 				27BCE2C32B188DB40007B7A7 /* InstallmentView.swift */,
+				273B0FB52B1CA67E004EB589 /* InstallmentHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				6813BA8A2A60F7800091F9A9 /* CodableView.swift */,
+				273B0FB12B1C9BEC004EB589 /* Date.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -433,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				6824B5092A69E57200D6A12D /* CommonTitleLabel.swift */,
+				273B0FB32B1C9D4B004EB589 /* CommonHeadingLabel.swift */,
 				68BA18302A6BAE4A007C40EE /* CommonTextLabel.swift */,
 			);
 			path = Labels;
@@ -694,6 +726,8 @@
 		68398D922A60C6B400C108A4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				273B0FAC2B1C8FED004EB589 /* Decimal */,
+				27BCE2C62B1B2CBC0007B7A7 /* UIScrollView */,
 				68145C8C2A88F5650047CED7 /* String */,
 				68145C892A88E40C0047CED7 /* Double */,
 				686AA98B2A84F154009CF21B /* UIColor */,
@@ -890,6 +924,7 @@
 				68145C912A88FAD10047CED7 /* Creator+Protocols.swift in Sources */,
 				27C8CE862B14963E00ED450F /* Cards.swift in Sources */,
 				6813BA882A60EE680091F9A9 /* LoginWoker.swift in Sources */,
+				273B0FB02B1C92C3004EB589 /* InstallmentAdapter.swift in Sources */,
 				6813BA7E2A60E0630091F9A9 /* LoginConfigurator.swift in Sources */,
 				27C8CEA32B155C1B00ED450F /* InstallmentsWorker.swift in Sources */,
 				27C8CE9B2B155BED00ED450F /* InstallmentsInteractor.swift in Sources */,
@@ -915,6 +950,7 @@
 				6813BA7C2A60E0530091F9A9 /* LoginModel.swift in Sources */,
 				68145C9F2A88FB2A0047CED7 /* CreatorViewController.swift in Sources */,
 				27C8CE992B155BBA00ED450F /* InstallmentsViewController.swift in Sources */,
+				273B0FB22B1C9BEC004EB589 /* Date.swift in Sources */,
 				6813FC2B2A70CD6700BFD7FE /* CardsConfigurator.swift in Sources */,
 				68A665B12A705BBD0074D8A7 /* LoginView+Animations.swift in Sources */,
 				6813343F2A77AF9B006C8B82 /* RequestError.swift in Sources */,
@@ -951,6 +987,7 @@
 				680C58D22A65BD98002FCEBB /* Texts.swift in Sources */,
 				6813FC332A70CD9200BFD7FE /* CardsPresenter.swift in Sources */,
 				6813BA862A60E0950091F9A9 /* LoginRouter.swift in Sources */,
+				273B0FAE2B1C8FF6004EB589 /* Decimal+Currency.swift in Sources */,
 				686FF4822A732DF600E660FC /* DebitsView+Animations.swift in Sources */,
 				68281EA02A7BB36500D9C5BF /* DebitModel.swift in Sources */,
 				68145C932A88FAE00047CED7 /* CreatorConfigurator.swift in Sources */,
@@ -964,13 +1001,16 @@
 				27C8CE802B14815800ED450F /* CardView.swift in Sources */,
 				27C8CEA72B155C3A00ED450F /* InstallmentsConfigurator.swift in Sources */,
 				68E25F3E2A77BD42006D3A93 /* Decoder.swift in Sources */,
+				27BCE2C82B1B2CE50007B7A7 /* UIScrollView.swift in Sources */,
 				68398D6C2A60C3E400C108A4 /* SceneDelegate.swift in Sources */,
 				27C8CEB02B16B7DB00ED450F /* InstallmentDataSource.swift in Sources */,
 				27C8CE8C2B14A37100ED450F /* CardsTableViewSkeletonCell.swift in Sources */,
 				27C8CE9F2B155C0100ED450F /* Installments+Protocols.swift in Sources */,
+				273B0FB42B1C9D4B004EB589 /* CommonHeadingLabel.swift in Sources */,
 				6826E4E62A6715BA005A2BB8 /* SFImages.swift in Sources */,
 				68B0FE802A70445600E2C7E9 /* RegisterModel.swift in Sources */,
 				68B0FE8B2A70455300E2C7E9 /* RegisterView.swift in Sources */,
+				273B0FB62B1CA67F004EB589 /* InstallmentHeaderView.swift in Sources */,
 				6813BA822A60E0820091F9A9 /* LoginInteractor.swift in Sources */,
 				27C8CE8A2B14A24800ED450F /* CardsDataSource.swift in Sources */,
 				686FF47B2A73123C00E660FC /* AppRouter.swift in Sources */,

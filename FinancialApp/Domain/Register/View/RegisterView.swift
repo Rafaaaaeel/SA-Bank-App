@@ -2,6 +2,12 @@ import UIKit
 
 final class RegisterView: UIView {
     
+    // titulo
+    // campo nome
+    // campo email
+    // campo confirmao email
+    // regras
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
