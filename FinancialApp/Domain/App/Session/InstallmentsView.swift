@@ -13,6 +13,10 @@ final class InstallmentsView: CommonView {
     private let position: CGRect
     private let model: Debit
     
+    var top: CGFloat {
+        return UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
+    }
+    
     init(card position: CGRect, model: Debit) {
         self.position = position
         self.model = model
@@ -36,7 +40,6 @@ final class InstallmentsView: CommonView {
 extension InstallmentsView: CodableViews {
     
     func configView() {
-        scrollView.delegate = self
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         cardView.translatesAutoresizingMaskIntoConstraints = true
@@ -58,10 +61,7 @@ extension InstallmentsView: CodableViews {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             UIView.animate(withDuration: 0.4) {
-                if let top = UIApplication.shared.windows.first?.safeAreaInsets.top {
-                    self.cardView.frame.origin.y = 50 + top
-                }
-                
+                self.cardView.frame.origin.y = 50 + self.top
             } completion: { _ in
                 self.showTableView()
             }
@@ -88,6 +88,7 @@ extension InstallmentsView: CodableViews {
     
     private func showTableView() {
         contentView.addSubview(installmentsTableView)
+        
         let installmentsTableViewConstraints = [
             installmentsTableView.topAnchor.constraint(equalToSystemSpacingBelow: cardView.bottomAnchor, multiplier: 2),
             installmentsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -97,26 +98,11 @@ extension InstallmentsView: CodableViews {
         
         NSLayoutConstraint.activate(installmentsTableViewConstraints)
         
-        if let top = UIApplication.shared.windows.first?.safeAreaInsets.top {
-            UIView.animate(withDuration: 0.2) {
-                self.scrollView.contentInset.top = -top
-            }
-        }
-        
         UIView.animate(withDuration: 0.2) {
+            self.scrollView.contentInset.top = -self.top
             self.installmentsTableView.layer.opacity = 1
         }
         
-    }
-    
-}
-
-extension InstallmentsView: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let maxOffSet: CGFloat = position.height + 42.01
-        let isOverOffset = scrollView.contentOffset.y > maxOffSet 
-        print(isOverOffset)
     }
     
 }

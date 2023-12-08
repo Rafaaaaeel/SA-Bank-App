@@ -37,7 +37,7 @@ final class CardsWorker: CardsWorkerProtocol {
     private func mockData() {
         
         do {
-            guard let path = Bundle.main.url(forResource: "payment-mock", withExtension: "json") else { return }
+            guard let path = Bundle.main.url(forResource: "cards-mock", withExtension: "json") else { return }
             let data = try Data(contentsOf: path)
             let decoder = JSONDecoder()
             let jsonData = try decoder.decode(CardsModel.Response.self, from: data)

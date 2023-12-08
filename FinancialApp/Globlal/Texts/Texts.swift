@@ -30,5 +30,9 @@ struct Text {
         static let headerTitleLoading = "Wait, \njust a moment \ngetting data..."
     }
 
+    struct Card {
+        static func parcels(initial: String, end: String) -> String { "\(initial)/\(end)" }
+    }
+    
 }
 

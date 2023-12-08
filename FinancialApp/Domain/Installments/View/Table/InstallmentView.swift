@@ -52,16 +52,16 @@ final class InstallmentView: CommonView {
     private func render() {
         guard let model else { return }
         totalLabel.isHidden = model.total == model.value
-        descriptionLabel.isHidden = model.name.capitalized == model.description.capitalized
-        parcelLabel.isHidden = true
+        descriptionLabel.isHidden = model.name.capitalized == model.description?.capitalized
+        
         valueLabel.text = model.value.asCurrencyValue
         nameLabel.text = model.name.capitalized
-        descriptionLabel.text = model.description.capitalized
+        descriptionLabel.text = model.description?.capitalized
         totalLabel.text = model.total.asCurrencyValue
 
-        if model.name == "Nintendo" {
+        if model.name == "Nintendo" || model.name == "Apple watch" {
             parcelLabel.isHidden = false
-            parcelLabel.text = DateManager.parcels(initial: model.initial, final: model.final)
+            parcelLabel.text = DateManager.currentParcel(purchase: model.date.orEmpty, parcel: model.quantity ?? 0)
         }
     }
     
@@ -102,3 +102,4 @@ extension InstallmentView: CodableViews {
     }
     
 }
+

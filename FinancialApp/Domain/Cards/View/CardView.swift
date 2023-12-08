@@ -11,11 +11,7 @@ final class CardView: UIView {
         return imageView
     }()
 
-    private lazy var cardDigitsLabel: CommonTextLabel = {
-        let label = CommonTextLabel()
-        label.textColor = .black
-        return label
-    }()
+    private lazy var cardDigitsLabel = CommonTextLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,6 +21,7 @@ final class CardView: UIView {
     required init?(coder: NSCoder) { nil }
     
     func render(_ model: Debit) {
+        cardDigitsLabel.textColor = .white
         cardDigitsLabel.text = model.description
         contentView.backgroundColor = UIColor(hex: model.colour)
         iconImageView.image = UIImage(named: model.image)

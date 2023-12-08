@@ -18,7 +18,6 @@ extension InstallmentHeaderView: CodableViews {
     func configView() {
         translatesAutoresizingMaskIntoConstraints = false
         layer.opacity = 0
-        titleLabel.text = DateManager.currentMonth()
     }
     
     func setupHiearchy() {
